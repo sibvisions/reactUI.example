@@ -14,7 +14,10 @@ const CustomChartScreen: FC<any> = (props) => {
     /** Gets all dataproviders of a screen */
     const dataProviders = useDataProviders(props.screenName);
     /** Gets all data of a dataprovider  */
-    const [data] = useDataProviderData(props.screenName, dataProviders[0]);
+    const [data]: [{
+        COUNTRY: string;
+        LITRES: number;
+    }[]] = useDataProviderData(props.screenName, dataProviders[0]);
     /** Gets a custom statup property */
     const customProp1 = useGetCustomProperty('privkey');
 
