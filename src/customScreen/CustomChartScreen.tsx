@@ -51,7 +51,7 @@ const CustomChartScreen: FC<any> = (props) => {
     /** Write your own custom JSX for the replace-screen here */
     return(
         <div style={{width: "100%", height:"100%"}}>
-            <Chart type={"pie"} data={chartData} options={options} />
+            <Chart type="pie" data={chartData} options={options} />
         </div>
     )
 }

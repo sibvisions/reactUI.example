@@ -49,30 +49,32 @@ const CustomDisplayFirst:FC = () => {
      */
     return (
         <CustomDisplayWrapper>
-            <div>
-                <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px'}}>
-                    This is the start of my custom-display for screen "First"!
-                </div>
+            {screen => 
                 <div>
-                    <div style={{textAlign: 'center'}}>
-                        <Chip label="Apple" icon="pi pi-apple" className="p-mr-2 p-mb-2" />
-                        <Chip label="Facebook" icon="pi pi-facebook" className="p-mr-2 p-mb-2" />
-                        <Chip label="Google" icon="pi pi-google" className="p-mr-2 p-mb-2" />
-                        <Chip label="Microsoft" icon="pi pi-microsoft" className="p-mb-2" removable />
+                    <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px'}}>
+                        This is the start of my custom-display for screen "First"!
                     </div>
-                    <div style={{flexDirection:'row'}}>
-                        <div style={{marginLeft:'10px', alignSelf:'center'}}>
-                            <button style={{marginRight: '5px'}}>custom-display</button>
-                            <button style={{marginRight: '5px'}}>for screen</button>
-                            <button style={{marginRight: '5px'}}>First!</button>
+                    <div>
+                        <div style={{textAlign: 'center'}}>
+                            <Chip label="Apple" icon="pi pi-apple" className="p-mr-2 p-mb-2" />
+                            <Chip label="Facebook" icon="pi pi-facebook" className="p-mr-2 p-mb-2" />
+                            <Chip label="Google" icon="pi pi-google" className="p-mr-2 p-mb-2" />
+                            <Chip label="Microsoft" icon="pi pi-microsoft" className="p-mb-2" removable />
                         </div>
-                        <WorkScreen />
+                        <div style={{flexDirection:'row'}}>
+                            <div style={{marginLeft:'10px', alignSelf:'center'}}>
+                                <button style={{marginRight: '5px'}}>custom-display</button>
+                                <button style={{marginRight: '5px'}}>for screen</button>
+                                <button style={{marginRight: '5px'}}>First!</button>
+                            </div>
+                            {screen}
+                        </div>
+                    </div>
+                    <div style={{height: '200px', background: '#3e3bff'}}>
+                        <Carousel value={images} numVisible={1} itemTemplate={itemTemplate}/>
                     </div>
                 </div>
-                <div style={{height: '200px', background: '#3e3bff'}}>
-                    <Carousel value={images} numVisible={1} itemTemplate={itemTemplate}/>
-                </div>
-            </div>
+            }
         </CustomDisplayWrapper>
 
     )
