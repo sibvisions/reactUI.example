@@ -12,7 +12,7 @@ const CustomGlobalDisplay:FC = () => {
      */
     return (
         <CustomDisplayWrapper>
-            {screen => <>
+            {(screen:any) => <>
                 <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'10px'}}>
                     Follow us on <i className="pi pi-twitter"/> @ABCDE
                 </div>

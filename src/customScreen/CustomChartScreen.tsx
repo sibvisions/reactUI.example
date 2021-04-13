@@ -1,6 +1,9 @@
 /** React imports */
 import React, {FC, useMemo} from "react";
 
+/** scss import */
+import "./CustomChartScreen.scss"
+
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
 import { useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI/dist/moduleIndex";
@@ -46,7 +49,7 @@ const CustomChartScreen: FC<any> = (props) => {
         }
     };
 
-    console.log(customProp1)
+    console.log(customProp1, dataProviders)
 
     /** Write your own custom JSX for the replace-screen here */
     return(

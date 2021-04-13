@@ -18,7 +18,7 @@ const CustomDisplaySimple:FC = () => {
      */
     return (
         <CustomDisplayWrapper>
-            {screen => <>
+            {(screen:any) => <>
                 {screen}
                 <Editor style={{height:'200px'}} value={text === null ? undefined : text} onTextChange={(e) => setText(e.htmlValue)} /> 
             </>}
