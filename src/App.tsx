@@ -7,6 +7,7 @@ import CustomDisplayFirst from './customScreen/CustomDisplayFirst';
 import CustomChartScreen from './customScreen/CustomChartScreen';
 import CustomDisplaySimple from './customScreen/CustomDisplaySimple';
 import CustomGlobalDisplay from './customScreen/CustomGlobalDisplay';
+import CustomGreenButtonScreen from './customScreen/CustomGreenButtonScreen';
 
 /** ReactUI imports */
 import {ReactUI} from 'reactUI/dist/moduleIndex'
@@ -15,6 +16,9 @@ import {ReactUI} from 'reactUI/dist/moduleIndex'
 //import 'primereact/resources/themes/saga-blue/theme.css';
 //import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
+import CustomScreenType from 'reactui/dist/JVX/customTypes/CustomScreenType';
+import CustomComponentType from 'reactui/dist/JVX/customTypes/CustomComponentType';
+import CustomDisplayType from 'reactui/dist/JVX/customTypes/CustomDisplayType';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -30,40 +34,33 @@ const App: FC = () => {
    * menuGroup: menu-group the custom-screen should be added into, if the menu-group isn't already added a new menu-group is created
    * customScreen: the component you want to add to the ReactUI
    * icon: an icon which will be displayed in the menu, FontAwesome like: fa-xxx, PrimeIcons like: pi-xxx FontAwesome preferred!
+   * replace: replace an existing screen with the given name, the screen-name can be found in VisionX
    */
-  const customScreensArray = [
+  const customScreens: CustomScreenType[] = [
     {
-      screenName: "LiveCounter",
+      name: "LiveCounter",
       menuGroup: "Custom Screens",
-      customScreen: <CustomCounter />,
+      screen: <CustomCounter />,
       icon: "pi-plus"
-    }
-  ];
-
-  /**
-   * Add your replace-screens to an array as objects with properties:
-   * screenToReplace: the name of the screen you want to replace, the screen-name can be found in VisionX
-   * replaceScreen: the component you want to replace the screen with
-   */
-  const replaceScreensArray = [
-    {
-      screenToReplace: "Cha-OL", 
-      replaceScreen: <CustomChartScreen/>
+    }, {
+      replace: true,
+      name: "Cha-OL", 
+      screen: <CustomChartScreen/>
     }
   ];
 
   /**
    * Add your custom-components to an array as objects with properties:
-   * componentName: the name of the component you want to replace, the component name can be found in VisionX
-   * customComp: the component you want to replace another component with, if not used, the component gets removed
+   * name: the name of the component you want to replace, the component name can be found in VisionX
+   * component: the component you want to replace another component with, if not used, the component gets removed
    */
-  const customComponentsArray = [
+  const customComponentsArray: CustomComponentType[] = [
     {
-      componentName: "Sec-BL_B_DOOPEN", 
-      customComp: <CustomCounter/>
+      name: "Sec-BL_B_DOOPEN", 
+      component: <CustomCounter/>
     },
     {
-      componentName: "Con-CG_E_contacts_STREET"
+      name: "Con-CG_E_contacts_STREET"
     }
   ];
 
@@ -86,30 +83,34 @@ const App: FC = () => {
    * Add your custom-displays to an array as objects with properties:
    * screen: (string string[]) name/s of screen/s where the custom-displays should be displayed,
    *         use 'global' to set a custom-display across all workscreens
-   * customDisplay: the custom-display to show on screen
+   * display: the custom-display to show on screen
    * options: global (boolean, default true): if true or undefined, displays global custom-display if available, false don't display global
    */
-  const customDisplayArray = [
+  const customDisplayArray: CustomDisplayType[] = [
     {
       screen: "global",
-      customDisplay: <CustomGlobalDisplay/>,
+      display: <CustomGlobalDisplay/>,
     },
     {
       screen: "Sim-SH",
-      customDisplay: <CustomDisplaySimple/>
+      display: <CustomDisplaySimple/>
     },
     {
       screen: ["Fir-N7", "LazLoa-TN"],
-      customDisplay: <CustomDisplayFirst/>,
-      options: {global: false}
+      display: <CustomDisplayFirst/>,
+      options: { global: false }
+    },
+    {
+      screen: ["Sec-BL"],
+      display: <CustomGreenButtonScreen/>,
+      options: { global: true }
     }
   ]
 
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (
     <ReactUI 
-      customScreens={customScreensArray} 
-      replaceScreens={replaceScreensArray} 
+      customScreens={customScreens} 
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
       customDisplays={customDisplayArray} />
