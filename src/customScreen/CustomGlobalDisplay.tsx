@@ -1,6 +1,9 @@
 import React, {FC} from "react";
 import { CustomDisplayWrapper, GlobalWorkscreen } from "reactui/dist/moduleIndex";
 
+/** scss import */
+import './CustomGlobalDisplay.scss'
+
 /**
  * A global custom-display is a "design" for the "main" screen, which is displayed across all screens
  */
@@ -12,7 +15,7 @@ const CustomGlobalDisplay:FC = () => {
      */
     return (
         <CustomDisplayWrapper>
-            {(screen:any) => <>
+            {screen => <>
                 <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'10px'}}>
                     Follow us on <i className="pi pi-twitter"/> @ABCDE
                 </div>
