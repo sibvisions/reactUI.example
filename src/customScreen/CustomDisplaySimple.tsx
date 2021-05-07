@@ -1,7 +1,7 @@
 /** React imports */
 import React, {FC, useState} from "react";
 import { Editor } from 'primereact/editor';
-import { CustomDisplayWrapper, WorkScreen } from "reactui/dist/moduleIndex";
+import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
 
 /** 
  * This component is an example for custom-displays, which allow the user to "design" their own "main" screen.

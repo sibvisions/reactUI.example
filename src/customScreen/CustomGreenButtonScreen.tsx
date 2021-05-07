@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomDisplayWrapper, WorkScreen } from "reactui/dist/moduleIndex";
+import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
 
 
 import './CustomGreenButtonScreen.scss';

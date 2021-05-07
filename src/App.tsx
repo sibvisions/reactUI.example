@@ -16,9 +16,9 @@ import {ReactUI} from 'reactUI/dist/moduleIndex'
 //import 'primereact/resources/themes/saga-blue/theme.css';
 //import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
-import CustomScreenType from 'reactui/dist/JVX/customTypes/CustomScreenType';
-import CustomComponentType from 'reactui/dist/JVX/customTypes/CustomComponentType';
-import CustomDisplayType from 'reactui/dist/JVX/customTypes/CustomDisplayType';
+import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
+import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
+import CustomDisplayType from 'reactui/dist/main/customTypes/CustomDisplayType';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.

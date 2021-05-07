@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { CustomDisplayWrapper, GlobalWorkscreen } from "reactui/dist/moduleIndex";
+import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
 
 /** scss import */
 import './CustomGlobalDisplay.scss'

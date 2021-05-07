@@ -5,7 +5,7 @@ import React, {FC} from "react";
 import './CustomDisplayFirst.scss'
 
 /** ReactUI imports */
-import { CustomDisplayWrapper, useRemoveCompFromWorkscreen, WorkScreen } from "reactui/dist/moduleIndex";
+import { CustomDisplayWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -26,8 +26,7 @@ import gal5 from "../assets/gal5.jpg";
 const CustomDisplayFirst:FC = () => {
 
     /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
-    useRemoveCompFromWorkscreen("Fir-N7_B_DOOPEN");
-    
+    useRemoveCompFromWorkScreen("Fir-N7_B_DOOPEN");
 
     /** PrimeReact Carousel setup */
     const images:Array<any> = [
