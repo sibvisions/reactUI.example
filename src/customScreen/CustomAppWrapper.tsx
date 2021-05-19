@@ -1,6 +1,6 @@
 /** React imports */
 import React, {FC} from "react";
-import { useMenuItems } from "reactui/dist/moduleIndex";
+import { useMenuItems, ProfileMenu } from "reactui/dist/moduleIndex";
 import { Menubar } from "primereact/menubar";
 
 /** scss import */
@@ -10,7 +10,10 @@ const CustomAppWrapper: FC = ({children}) => {
     const menuItems = useMenuItems();
     
     return <div className="customApp">
-        <Menubar model={menuItems} />
+        <div className="customApp__menu">
+            <Menubar model={menuItems} />
+            <ProfileMenu />
+        </div>
         {children}
     </div>
 }
