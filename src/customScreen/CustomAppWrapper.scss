@@ -1,0 +1,17 @@
+.customApp {
+    border: 5px solid red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    .p-menubar {
+        .p-submenu-list  {
+            width: auto;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: nowrap;
+        }
+    }
+
+}

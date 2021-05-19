@@ -8,6 +8,7 @@ import CustomChartScreen from './customScreen/CustomChartScreen';
 import CustomDisplaySimple from './customScreen/CustomDisplaySimple';
 import CustomGlobalDisplay from './customScreen/CustomGlobalDisplay';
 import CustomGreenButtonScreen from './customScreen/CustomGreenButtonScreen';
+import CustomAppWrapper from './customScreen/CustomAppWrapper';
 
 /** ReactUI imports */
 import {ReactUI} from 'reactUI/dist/moduleIndex'
@@ -113,7 +114,8 @@ const App: FC = () => {
       customScreens={customScreens} 
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
-      customDisplays={customDisplayArray} />
+      customDisplays={customDisplayArray}
+      customAppWrapper={CustomAppWrapper} />
   );
 }
 
