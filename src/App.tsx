@@ -97,7 +97,7 @@ const App: FC = () => {
       display: <CustomDisplaySimple/>
     },
     {
-      screen: ["Fir-N7", "LazLoa-TN"],
+      screen: ["Fir-N7"],
       display: <CustomDisplayFirst/>,
       options: { global: false }
     },

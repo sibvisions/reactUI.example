@@ -16,11 +16,11 @@ const CustomGlobalDisplay:FC = () => {
     return (
         <CustomDisplayWrapper>
             {screen => <>
-                <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'10px'}}>
+                <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'20px'}}>
                     Follow us on <i className="pi pi-twitter"/> @ABCDE
                 </div>
                 {screen}
-                <div style={{height: '40px', fontSize: '16px', background: '#b31307', color: 'black', lineHeight: '40px', paddingLeft:'10px'}}>
+                <div style={{height: '40px', fontSize: '16px', background: '#b31307', color: 'white', lineHeight: '40px', paddingLeft:'20px'}}>
                     Subscribe to our <i className="pi pi-youtube"/> channel ABCDE
                 </div>
             </>}

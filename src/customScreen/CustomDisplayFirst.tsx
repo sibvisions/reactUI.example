@@ -50,7 +50,7 @@ const CustomDisplayFirst:FC = () => {
         <CustomDisplayWrapper>
             {screen => 
                 <div>
-                    <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px'}}>
+                    <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', paddingLeft: '20px'}}>
                         This is the start of my custom-display for screen "First"!
                     </div>
                     <div>
