@@ -2,10 +2,10 @@
 import React, {FC} from "react";
 
 /** scss import */
-import './CustomDisplayFirst.scss'
+import './CustomOverlayFirst.scss'
 
 /** ReactUI imports */
-import { CustomDisplayWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
+import { CustomOverlayWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -47,7 +47,7 @@ const CustomDisplayFirst:FC = () => {
      * Call the from ReactUI imported "Workscreen" component where the workscreen should be displayed
      */
     return (
-        <CustomDisplayWrapper>
+        <CustomOverlayWrapper>
             {screen => 
                 <div>
                     <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', paddingLeft: '20px'}}>
@@ -74,7 +74,7 @@ const CustomDisplayFirst:FC = () => {
                     </div>
                 </div>
             }
-        </CustomDisplayWrapper>
+        </CustomOverlayWrapper>
 
     )
 }

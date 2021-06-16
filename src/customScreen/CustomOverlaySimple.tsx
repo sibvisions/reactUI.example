@@ -1,7 +1,7 @@
 /** React imports */
 import React, {FC, useState} from "react";
 import { Editor } from 'primereact/editor';
-import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
+import { CustomOverlayWrapper } from "reactui/dist/moduleIndex";
 
 /** 
  * This component is an example for custom-displays, which allow the user to "design" their own "main" screen.
@@ -17,12 +17,12 @@ const CustomDisplaySimple:FC = () => {
      * Call the from ReactUI imported "Workscreen" component where the workscreen should be displayed
      */
     return (
-        <CustomDisplayWrapper>
+        <CustomOverlayWrapper>
             {screen => <>
                 {screen}
                 <Editor style={{height:'200px'}} value={text === null ? undefined : text} onTextChange={(e) => setText(e.htmlValue)} /> 
             </>}
-        </CustomDisplayWrapper>
+        </CustomOverlayWrapper>
     )
 }
 export default CustomDisplaySimple;

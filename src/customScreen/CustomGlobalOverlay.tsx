@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
+import { CustomOverlayWrapper } from "reactui/dist/moduleIndex";
 
 /** scss import */
 import './CustomGlobalDisplay.scss'
@@ -14,7 +14,7 @@ const CustomGlobalDisplay:FC = () => {
      * "GlobalWorkScreen" where you want the workscreen to be displayed. 
      */
     return (
-        <CustomDisplayWrapper>
+        <CustomOverlayWrapper>
             {screen => <>
                 <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'20px'}}>
                     Follow us on <i className="pi pi-twitter"/> @ABCDE
@@ -24,7 +24,7 @@ const CustomGlobalDisplay:FC = () => {
                     Subscribe to our <i className="pi pi-youtube"/> channel ABCDE
                 </div>
             </>}
-        </CustomDisplayWrapper>
+        </CustomOverlayWrapper>
     )
 }
 export default CustomGlobalDisplay

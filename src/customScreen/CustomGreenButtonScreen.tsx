@@ -1,15 +1,15 @@
 import React from 'react';
-import { CustomDisplayWrapper } from "reactui/dist/moduleIndex";
+import { CustomOverlayWrapper } from "reactui/dist/moduleIndex";
 
 
 import './CustomGreenButtonScreen.scss';
 
 const CustomGreenButtonScreen = () => {
-    return <CustomDisplayWrapper>
+    return <CustomOverlayWrapper>
         {screen => <div className="green-button-screen">
             {screen}
         </div>}
-    </CustomDisplayWrapper>
+    </CustomOverlayWrapper>
 };
 
 export default CustomGreenButtonScreen;
