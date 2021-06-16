@@ -1,8 +1,8 @@
 import React, {FC} from "react";
-import { CustomOverlayWrapper } from "reactui/dist/moduleIndex";
+import { ScreenWrapper } from "reactui/dist/moduleIndex";
 
 /** scss import */
-import './CustomGlobalDisplay.scss'
+import './GlobalScreenWrapper.scss'
 
 /**
  * A global custom-display is a "design" for the "main" screen, which is displayed across all screens
@@ -10,11 +10,11 @@ import './CustomGlobalDisplay.scss'
 const CustomGlobalDisplay:FC = () => {
 
     /** 
-     * To use a global display wrap the JSX-code in "CustomDisplayWrapper" and put 
-     * "GlobalWorkScreen" where you want the workscreen to be displayed. 
+     * To use a global display wrap the JSX-code in "ScreenWrapper" and put 
+     * "screen" where you want the workscreen to be displayed. 
      */
     return (
-        <CustomOverlayWrapper>
+        <ScreenWrapper>
             {screen => <>
                 <div style={{height: '40px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '40px', paddingLeft:'20px'}}>
                     Follow us on <i className="pi pi-twitter"/> @ABCDE
@@ -24,7 +24,7 @@ const CustomGlobalDisplay:FC = () => {
                     Subscribe to our <i className="pi pi-youtube"/> channel ABCDE
                 </div>
             </>}
-        </CustomOverlayWrapper>
+        </ScreenWrapper>
     )
 }
 export default CustomGlobalDisplay

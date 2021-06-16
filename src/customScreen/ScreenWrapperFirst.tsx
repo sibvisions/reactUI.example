@@ -2,10 +2,10 @@
 import React, {FC} from "react";
 
 /** scss import */
-import './CustomOverlayFirst.scss'
+import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { CustomOverlayWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
+import { ScreenWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -23,7 +23,7 @@ import gal5 from "../assets/gal5.jpg";
  * Without a custom display, the workscreen will take all available space of the "main" screen,
  * with a custom display the user can put together their own screen. The workscreen will use the remaining space
  */
-const CustomDisplayFirst:FC = () => {
+const ScreenWrapperFirst:FC = () => {
 
     /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
     useRemoveCompFromWorkScreen("Fir-N7_B_DOOPEN");
@@ -43,8 +43,8 @@ const CustomDisplayFirst:FC = () => {
     }
 
     /** 
-     * To use custom-display wrap the custom-display with "CusomDisplayWrapper" then write your JSX-code 
-     * Call the from ReactUI imported "Workscreen" component where the workscreen should be displayed
+     * To use screen-wrappers wrap the screen-wrapper with "ScreenWrapper" then write your JSX-code 
+     * Call screen where the workscreen should be displayed
      */
     return (
         <CustomOverlayWrapper>
@@ -78,4 +78,4 @@ const CustomDisplayFirst:FC = () => {
 
     )
 }
-export default CustomDisplayFirst
+export default ScreenWrapperFirst

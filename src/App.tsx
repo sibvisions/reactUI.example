@@ -3,10 +3,10 @@ import React, { FC } from 'react';
 
 /** UI imports */
 import CustomCounter from './customScreen/CustomCounter'
-import CustomOverlayFirst from './customScreen/CustomOverlayFirst';
+import ScreenWrapperFirst from './customScreen/ScreenWrapperFirst';
 import CustomChartScreen from './customScreen/CustomChartScreen';
-import CustomOverlaySimple from './customScreen/CustomOverlaySimple';
-import CustomGlobalOverlay from './customScreen/CustomGlobalOverlay';
+import ScreenWrapperSimple from './customScreen/ScreenWrapperSimple';
+import GlobalScreenWrapper from './customScreen/GlobalScreenWrapper';
 import CustomGreenButtonScreen from './customScreen/CustomGreenButtonScreen';
 import CustomAppWrapper from './customScreen/CustomAppWrapper';
 
@@ -19,7 +19,7 @@ import {ReactUI} from 'reactUI/dist/moduleIndex'
 import 'primeicons/primeicons.css';
 import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
 import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
-import CustomOverlayType from 'reactui/dist/main/customTypes/CustomOverlayType';
+import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -78,32 +78,32 @@ const App: FC = () => {
   ];
 
   /**
-   * Custom-overlays are used to display your customized component instead of just the workscreen.
-   * In custom-overlays you are able to decide where the workscreen should be displayed and if there should be other elements.
+   * Screen-wrappers are used to display your customized component instead of just the workscreen.
+   * In screen-wrappers you are able to decide where the workscreen should be displayed and if there should be other elements.
    * For more info check out one of the examples.
-   * Add your custom-overlays to an array as objects with properties:
-   * screen: (string string[]) name/s of screen/s where the custom-overlays should be displayed,
-   *         use 'global' to set a custom-overlay across all workscreens
-   * overlay: the custom-overlay to show on screen
-   * options: global (boolean, default true): if true or undefined, displays global custom-overlay if available, false don't display global
+   * Add your screen-wrappers to an array as objects with properties:
+   * screen: (string string[]) name/s of screen/s where the screen-wrapper should be displayed,
+   *         use 'global' to set a screen-wrapper across all workscreens
+   * wrapper: the cscreen-wrapper to show on screen
+   * options: global (boolean, default true): if true or undefined, displays global screen-wrapper if available, false don't display global
    */
-  const customOverlayArray: CustomOverlayType[] = [
+  const screenWrapperArray: ScreenWrapperType[] = [
     {
       screen: "global",
-      overlay: <CustomGlobalOverlay/>,
+      wrapper: <GlobalScreenWrapper/>,
     },
     {
       screen: "Sim-SH",
-      overlay: <CustomOverlaySimple/>
+      wrapper: <ScreenWrapperSimple/>
     },
     {
       screen: ["Fir-N7"],
-      overlay: <CustomOverlayFirst/>,
+      wrapper: <ScreenWrapperFirst/>,
       options: { global: false }
     },
     {
       screen: ["Sec-BL"],
-      overlay: <CustomGreenButtonScreen/>,
+      wrapper: <CustomGreenButtonScreen/>,
       options: { global: true }
     }
   ]
@@ -114,7 +114,7 @@ const App: FC = () => {
       customScreens={customScreens} 
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
-      customOverlays={customOverlayArray}
+      screenWrappers={screenWrapperArray}
       customAppWrapper={CustomAppWrapper} />
   );
 }
