@@ -47,7 +47,7 @@ const ScreenWrapperFirst:FC = () => {
      * Call screen where the workscreen should be displayed
      */
     return (
-        <CustomOverlayWrapper>
+        <ScreenWrapper>
             {screen => 
                 <div>
                     <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', paddingLeft: '20px'}}>
@@ -74,7 +74,7 @@ const ScreenWrapperFirst:FC = () => {
                     </div>
                 </div>
             }
-        </CustomOverlayWrapper>
+        </ScreenWrapper>
 
     )
 }
