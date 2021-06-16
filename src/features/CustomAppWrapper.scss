@@ -1,0 +1,46 @@
+.reactUI {
+    flex-direction: column;
+    --menuTopBar: #112;
+
+    .customApp__menu {
+        display: flex;
+        justify-content: space-between;
+        background: var(--menuTopBar);
+        box-shadow: 0 0 10px rgba(#000, 0.7);
+        z-index: 2;
+    }
+
+    .p-menubar {
+        padding: 0 10px;
+
+        .p-submenu-list  {
+            width: auto;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: nowrap;
+        }
+
+        .p-menubar-root-list {
+            & > .p-menuitem {
+                padding: 0;
+    
+                & > .p-menuitem-link {
+                    padding: 10px !important;
+                    transition: background .2s ease-in-out;
+    
+                    &:focus,
+                    &:hover {
+                        box-shadow: none;
+                        background: rgba(#fff, .2) !important;
+                        
+                        span {
+                            color: #fff !important;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+}

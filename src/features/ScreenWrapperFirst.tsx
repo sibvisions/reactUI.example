@@ -26,7 +26,7 @@ import gal5 from "../assets/gal5.jpg";
 const ScreenWrapperFirst:FC = () => {
 
     /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
-    useRemoveCompFromWorkScreen("Fir-N7_B_DOOPEN");
+    //useRemoveCompFromWorkScreen("Fir-N7_B_DOOPEN");
 
     /** PrimeReact Carousel setup */
     const images:Array<any> = [
@@ -48,34 +48,28 @@ const ScreenWrapperFirst:FC = () => {
      */
     return (
         <ScreenWrapper>
-            {screen => 
+            {screen =>
                 <div>
-                    <div style={{height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', paddingLeft: '20px'}}>
-                        This is the start of my custom-display for screen "First"!
+                    <div style={{ height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', textAlign: 'center' }}>
+                        This is the start of my screen-wrapper for screen "First"!
                     </div>
                     <div>
-                        <div style={{textAlign: 'center'}}>
-                            <Chip label="Apple" icon="pi pi-apple" className="p-mr-2 p-mb-2" />
-                            <Chip label="Facebook" icon="pi pi-facebook" className="p-mr-2 p-mb-2" />
-                            <Chip label="Google" icon="pi pi-google" className="p-mr-2 p-mb-2" />
-                            <Chip label="Microsoft" icon="pi pi-microsoft" className="p-mb-2" removable />
-                        </div>
-                        <div style={{flexDirection:'row'}}>
-                            <div style={{marginLeft:'10px', alignSelf:'center'}}>
-                                <button style={{marginRight: '5px'}}>custom-display</button>
-                                <button style={{marginRight: '5px'}}>for screen</button>
-                                <button style={{marginRight: '5px'}}>First!</button>
+                        <div style={{ flexDirection: 'row' }}>
+                            <div style={{ height: "100%", display:"flex", marginLeft: '10px', alignSelf: 'center', border: "1px solid" }}>
+                                <Chip label="Apple" icon="pi pi-apple" className="p-mr-2 p-mb-2 sw-chip"  />
+                                <Chip label="Facebook" icon="pi pi-facebook" className="p-mr-2 p-mb-2 sw-chip" />
+                                <Chip label="Google" icon="pi pi-google" className="p-mr-2 p-mb-2 sw-chip" />
+                                <Chip label="Microsoft" icon="pi pi-microsoft" className="p-mb-2 sw-chip" removable />
                             </div>
                             {screen}
                         </div>
                     </div>
-                    <div style={{height: '200px', background: '#3e3bff'}}>
-                        <Carousel value={images} numVisible={1} itemTemplate={itemTemplate}/>
+                    <div style={{ height: '200px' }}>
+                        <Carousel value={images} numVisible={1} itemTemplate={itemTemplate} />
                     </div>
                 </div>
             }
         </ScreenWrapper>
-
     )
 }
 export default ScreenWrapperFirst

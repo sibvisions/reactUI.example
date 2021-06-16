@@ -4,9 +4,9 @@ import { Editor } from 'primereact/editor';
 import { ScreenWrapper } from "reactui/dist/moduleIndex";
 
 /** 
- * This component is an example for custom-displays, which allow the user to "design" their own "main" screen.
- * Without a custom display, the workscreen will take all available space of the "main" screen,
- * with a custom display the user can put together their own screen. The workscreen will use the remaining space
+ * This component is an example for screen-wrapper, which allow the user to design their own "main" screen.
+ * Without a screen-wrapper, the workscreen will take all available space of the "main" screen,
+ * with a screen-wrapper the user can put together their own screen. The workscreen will use the remaining space
  */
 const ScreenWrapperSimple:FC = () => {
     /** State for editor */

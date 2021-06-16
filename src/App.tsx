@@ -2,13 +2,13 @@
 import React, { FC } from 'react';
 
 /** UI imports */
-import CustomCounter from './customScreen/CustomCounter'
-import ScreenWrapperFirst from './customScreen/ScreenWrapperFirst';
-import CustomChartScreen from './customScreen/CustomChartScreen';
-import ScreenWrapperSimple from './customScreen/ScreenWrapperSimple';
-import GlobalScreenWrapper from './customScreen/GlobalScreenWrapper';
-import CustomGreenButtonScreen from './customScreen/CustomGreenButtonScreen';
-import CustomAppWrapper from './customScreen/CustomAppWrapper';
+import CustomCounter from './features/CustomCounter'
+import ScreenWrapperFirst from './features/ScreenWrapperFirst';
+import CustomChartScreen from './features/CustomChartScreen';
+import ScreenWrapperSimple from './features/ScreenWrapperSimple';
+import GlobalScreenWrapper from './features/GlobalScreenWrapper';
+import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
+import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
 import {ReactUI} from 'reactUI/dist/moduleIndex'
@@ -17,6 +17,7 @@ import {ReactUI} from 'reactUI/dist/moduleIndex'
 //import 'primereact/resources/themes/saga-blue/theme.css';
 //import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
 import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
 import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';

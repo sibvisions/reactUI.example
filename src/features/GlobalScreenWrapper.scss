@@ -5,3 +5,11 @@
     --chart-points: 
         triangle, circle;
 }
+
+.sib-link {
+    text-decoration: none;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+}
