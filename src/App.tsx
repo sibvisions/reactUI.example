@@ -21,6 +21,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
 import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
 import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';
+import CustomProjectScreen from './features/CustomProjectScreen';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -39,12 +40,19 @@ const App: FC = () => {
    * replace: replace an existing screen with the given name, the screen-name can be found in VisionX
    */
   const customScreens: CustomScreenType[] = [
+    // {
+    //   name: "LiveCounter",
+    //   menuGroup: "Custom Screens",
+    //   screen: <CustomCounter />,
+    //   icon: "pi-plus"
+    // },
     {
-      name: "LiveCounter",
+      name: "Project Images",
       menuGroup: "Custom Screens",
-      screen: <CustomCounter />,
-      icon: "pi-plus"
-    }, {
+      screen: <CustomProjectScreen />,
+      icon: "fa-project-diagram"
+    },
+    {
       replace: true,
       name: "Cha-OL", 
       screen: <CustomChartScreen/>
@@ -89,10 +97,10 @@ const App: FC = () => {
    * options: global (boolean, default true): if true or undefined, displays global screen-wrapper if available, false don't display global
    */
   const screenWrapperArray: ScreenWrapperType[] = [
-    {
-      screen: "global",
-      wrapper: <GlobalScreenWrapper/>,
-    },
+    // {
+    //   screen: "global",
+    //   wrapper: <GlobalScreenWrapper/>,
+    // },
     {
       screen: "Sim-SH",
       wrapper: <ScreenWrapperSimple/>
@@ -116,7 +124,8 @@ const App: FC = () => {
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
       screenWrappers={screenWrapperArray}
-      customAppWrapper={CustomAppWrapper} />
+      //customAppWrapper={CustomAppWrapper} 
+      />
   );
 }
 
