@@ -37,6 +37,6 @@ The custom-screen will be added to the menu-group specified.
 
 ![menu-entry](../readme-images/cs-menuentry.PNG)
 
-Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](src/features)
+Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](../../features)
 
 ![example-custom-screen](../readme-images/cs-example.PNG)
