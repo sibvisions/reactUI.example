@@ -1,7 +1,7 @@
 # Custom-Screens
 
 ## Overview
-Custom-screens are a way to add your own react-coded components, which aren't avaiable in VisionX, to your application.
+Custom-screens are a way to add your own react-coded screens, which aren't avaiable in VisionX, to your application.
 Use custom-screens if you want to add screens to your web application, which are react only and don't need to work with the java applications server.
 
 ## Implementation
