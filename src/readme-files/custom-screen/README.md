@@ -10,12 +10,6 @@ Use custom-screens if you want to add screens to your web application, which are
 ```typescript
 const customScreens: CustomScreenType[] = [
     {
-      name: "LiveCounter",
-      menuGroup: "Custom Screens",
-      screen: <CustomCounter />,
-      icon: "pi-plus"
-    },
-    {
       name: "Project Images",
       menuGroup: "Custom Screens",
       screen: <CustomProjectScreen />,
@@ -39,3 +33,10 @@ icon | string, undefined | An icon which will be displayed in the menu. FontAwes
   );
 ```
 ## Example
+The custom-screen will be added to the menu-group specified.
+
+![menu-entry](./cs-menuentry.png)
+
+Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](src/features)
+
+![example-custom-screen](./cs-example.png)
