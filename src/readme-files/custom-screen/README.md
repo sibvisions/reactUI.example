@@ -35,8 +35,8 @@ icon | string, undefined | An icon which will be displayed in the menu. FontAwes
 ## Example
 The custom-screen will be added to the menu-group specified.
 
-<img src="src/readme-files/readme-images/cs-menuentry.png" />
+<img src="src/readme-files/readme-images/cs-menuentry.PNG" />
 
 Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](src/features)
 
-<img src="src/readme-files/readme-images/cs-example.png" />
+<img src="src/readme-files/readme-images/cs-example.PNG" />
