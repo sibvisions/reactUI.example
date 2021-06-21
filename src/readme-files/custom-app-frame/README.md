@@ -18,7 +18,35 @@ In your "ReactUI" component pass the custom-application-frame as property (type 
 ### Using Menu-Items
 To add the menu-items to your custom-application-frame use the "useMenutItems" hook to get the menu-items as objects. The item structure is as below:
 
-<img src="../readme-images/menu-structure1.png" width="400"> <img src="../readme-images/menu-structure2.png" width="300">
+```JSON
+[
+  {
+    "label":"MDM",
+    "items": [
+                {
+                  "label":"Simple",
+                  "componentId":"com.sibvisions.apps.mobile.demo.screens.SimpleWorkScreen:L1_MI_DOOPENWORKSCREEN_COM-SIB-APP-MOB-DEM-SCR-SIMWORSCR"
+                }
+              ]
+  },
+  {
+    "label":"Custom Screens",
+    "items": [
+                {
+                  "label":"LiveCounter",
+                  "componentId":"",
+                  "icon":"pi pi-plus"
+                },
+                {
+                  "label":"Project Images",
+                  "componentId":"",
+                  "icon":"fa fa-project-diagram"
+                }
+              ]
+  }
+]
+
+```
 
 ### Using the Profile Menu
 To add the profile menu to your custom-application-frame import the "ProfileMenu" component and add it where you would like.

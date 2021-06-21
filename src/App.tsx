@@ -110,11 +110,11 @@ const App: FC = () => {
       wrapper: <ScreenWrapperFirst/>,
       options: { global: false }
     },
-    // {
-    //   screen: ["Sec-BL"],
-    //   wrapper: <CustomGreenButtonScreen/>,
-    //   options: { global: true }
-    // }
+    {
+      screen: ["Sec-BL"],
+      wrapper: <CustomGreenButtonScreen/>,
+      options: { global: true }
+    }
   ]
 
   /** Return the ReactUI and pass your custom-content arrays as properties */
@@ -124,7 +124,7 @@ const App: FC = () => {
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
       screenWrappers={screenWrapperArray}
-      //customAppWrapper={CustomAppWrapper} 
+      customAppWrapper={CustomAppWrapper} 
       />
   );
 }
