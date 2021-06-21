@@ -5,7 +5,7 @@ Replace-screens replace an already existing screen in VisionX with your own reac
 Use replace-screens to develop custom screens with react, while still being able to use the data of the replaced screen from your java application!
 
 ## Implementation
-1. Add an array "customScreens" (type CustomScreenType, the same array as custom-screens)
+1. Add an array for your replace-screens (type CustomScreenType[], the same array as custom-screens).
 
 ```typescript
 const replaceScreens: CustomScreenType[] = [
@@ -45,7 +45,8 @@ To get the data use the "useDataProviderData" hook and pass the screenname and o
 ```
 
 ## Example
-In my example I replaced the "Chart" screen of my demo and created my own chart with the data the server is sending. </br>
+In my example I replaced the "Chart" screen of my demo and created my own chart with the data the server is sending.
+
 In the menu I click the screen which has been replaced.
 
 ![replace-screen-menu](../readme-images/rs-menu.png)
@@ -53,3 +54,5 @@ In the menu I click the screen which has been replaced.
 Here you can see my replace-screen. I am using the data provided by the java application to display my chart.
 
 ![replace-screen-example](../readme-images/rs-example.png)
+
+[Replace-screen source can be found here](../../features/CustomChartScreen).

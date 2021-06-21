@@ -5,7 +5,7 @@ Custom-screens are a way to add your own react-coded screens, which aren't avaia
 Use custom-screens if you want to add screens to your web application, which are react only and don't need to work with the java applications server.
 
 ## Implementation
-1. Add an array "customScreens" (type CustomScreenType, the same array as replace-screens)
+1. Add an array for your custom-screens (type CustomScreenType[], the same array as replace-screens).
 
 ```typescript
 const customScreens: CustomScreenType[] = [
@@ -17,7 +17,7 @@ const customScreens: CustomScreenType[] = [
     }
   ];
   ```
- ### Custom-Screen Properties
+### Custom-Screen Properties
 Name | Type | Description
 --- | --- | --- |
 name | string | Name of the screen used for routing and gets displayed in the menu.
@@ -37,6 +37,6 @@ The custom-screen will be added to the menu-group specified.
 
 ![menu-entry](../readme-images/cs-menuentry.PNG)
 
-Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](../../features)
+Here is an example custom screen I added with components which are not available in VisionX! [Sources can be found here](../../features/CustomProjectScreen.tsx)
 
 ![example-custom-screen](../readme-images/cs-example.PNG)

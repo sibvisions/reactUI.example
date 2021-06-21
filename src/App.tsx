@@ -40,12 +40,12 @@ const App: FC = () => {
    * replace: replace an existing screen with the given name, the screen-name can be found in VisionX
    */
   const customScreens: CustomScreenType[] = [
-    // {
-    //   name: "LiveCounter",
-    //   menuGroup: "Custom Screens",
-    //   screen: <CustomCounter />,
-    //   icon: "pi-plus"
-    // },
+    {
+      name: "LiveCounter",
+      menuGroup: "Custom Screens",
+      screen: <CustomCounter />,
+      icon: "pi-plus"
+    },
     {
       name: "Project Images",
       menuGroup: "Custom Screens",
@@ -97,24 +97,24 @@ const App: FC = () => {
    * options: global (boolean, default true): if true or undefined, displays global screen-wrapper if available, false don't display global
    */
   const screenWrapperArray: ScreenWrapperType[] = [
-    // {
-    //   screen: "global",
-    //   wrapper: <GlobalScreenWrapper/>,
-    // },
+    {
+      screen: "global",
+      wrapper: <GlobalScreenWrapper/>,
+    },
     {
       screen: "Sim-SH",
       wrapper: <ScreenWrapperSimple/>
     },
     {
-      screen: ["Fir-N7"],
+      screen: "Fir-N7",
       wrapper: <ScreenWrapperFirst/>,
       options: { global: false }
     },
-    {
-      screen: ["Sec-BL"],
-      wrapper: <CustomGreenButtonScreen/>,
-      options: { global: true }
-    }
+    // {
+    //   screen: ["Sec-BL"],
+    //   wrapper: <CustomGreenButtonScreen/>,
+    //   options: { global: true }
+    // }
   ]
 
   /** Return the ReactUI and pass your custom-content arrays as properties */

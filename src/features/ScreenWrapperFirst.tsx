@@ -5,7 +5,7 @@ import React, {FC} from "react";
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useRemoveCompFromWorkScreen } from "reactui/dist/moduleIndex";
+import { ScreenWrapper, useRemoveComponent } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -25,8 +25,8 @@ import gal5 from "../assets/gal5.jpg";
  */
 const ScreenWrapperFirst:FC = () => {
 
-    /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
-    //useRemoveCompFromWorkScreen("Fir-N7_B_DOOPEN");
+    // /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
+    // useRemoveComponent("Fir-N7_B_DOOPEN");
 
     /** PrimeReact Carousel setup */
     const images:Array<any> = [
