@@ -22,6 +22,7 @@ import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
 import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
 import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';
 import CustomProjectScreen from './features/CustomProjectScreen';
+import { CustomScreenParameter } from '../../reactUI/dist/main/customTypes';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -117,6 +118,25 @@ const App: FC = () => {
     }
   ]
 
+  const screenParameter: CustomScreenParameter[] = [
+    {
+      name: "Fir-N7",
+      parameter: {
+        abc: "def",
+        test: 123,
+        hello: false
+      }
+    },
+    {
+      name: "Sec-BL",
+      parameter: {
+        wyz: "tuv",
+        tset: 789,
+        bye: true
+      }
+    }
+  ]
+
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (
     <ReactUI 
@@ -124,7 +144,8 @@ const App: FC = () => {
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
       screenWrappers={screenWrapperArray}
-      customAppWrapper={CustomAppWrapper} 
+      customAppWrapper={CustomAppWrapper}
+      customScreenParameter={screenParameter}
       />
   );
 }
