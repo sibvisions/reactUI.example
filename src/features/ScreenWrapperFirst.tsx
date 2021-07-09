@@ -5,11 +5,12 @@ import React, {FC} from "react";
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useRemoveComponent } from "reactui/dist/moduleIndex";
+import { ScreenWrapper, useAPI, useRemoveComponent } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
 import { Carousel } from 'primereact/carousel';
+import { Button } from 'primereact/button'
 
 /** Other imports */
 import gal1 from "../assets/gal1.jpg";
@@ -23,7 +24,9 @@ import gal5 from "../assets/gal5.jpg";
  * Without a custom display, the workscreen will take all available space of the "main" screen,
  * with a custom display the user can put together their own screen. The workscreen will use the remaining space
  */
-const ScreenWrapperFirst:FC = () => {
+const ScreenWrapperFirst:FC<any> = (props) => {
+
+    const api = useAPI();
 
     // /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
     // useRemoveComponent("Fir-N7_B_DOOPEN");
@@ -50,8 +53,22 @@ const ScreenWrapperFirst:FC = () => {
         <ScreenWrapper>
             {screen =>
                 <div>
-                    <div style={{ height: '50px', fontSize: '16px', background: '#457fca', color: 'white', lineHeight: '50px', textAlign: 'center' }}>
+                    <div
+                        style={{
+                            height: '50px',
+                            fontSize: '16px',
+                            background: '#457fca',
+                            color: 'white',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        }}>
                         This is the start of my screen-wrapper for screen "First"!
+                        <Button 
+                            onClick={() => api.sendScreenParameter(props.screenName, { testParam: 'test' })}
+                            style={{marginLeft: '5px'}}>
+                            Click to send Screen-Parameter!
+                        </Button>
                     </div>
                     <div>
                         <div style={{ flexDirection: 'row' }}>

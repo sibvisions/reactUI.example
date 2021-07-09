@@ -15,3 +15,4 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 - [Custom-Startup-Properties](src/readme-files/custom-startup-props) - Send custom-startup-properties from your WebApp to the server.
 - [Screen-Wrapper](src/readme-files/screen-wrapper) - Wrap your workscreen with customized JSX. By screen(s) or global.
 - [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
+- [Send Screen-Parameter to the Server](src/readme-files/screen-parameter) - Send screen-parameter to the server.

@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import {ReactUI, useAppContext} from 'reactUI/dist/moduleIndex'
+import { ReactUI } from 'reactUI/dist/moduleIndex'
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -31,8 +31,6 @@ import { CustomScreenParameter } from '../../reactUI/dist/main/customTypes';
  * and pass them as props to the ReactUI component.
  */
 const App: FC = () => {
-
-  const context = useAppContext();
 
   /**
    * Add your custom-screens to an array as objects with properties:

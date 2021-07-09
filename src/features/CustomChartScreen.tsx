@@ -6,7 +6,7 @@ import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { useAppContext, useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI/dist/moduleIndex";
+import { useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI/dist/moduleIndex";
 
 /**
  * This component is an example for replace-screens. It replaces an existing screen sent by the server with your own custom-screen,
@@ -14,8 +14,6 @@ import { useAppContext, useDataProviderData, useDataProviders, useGetCustomPrope
  * A replace-screen receives props: screenName - the name of the screen to receive dataProviders and data
  */
 const CustomChartScreen: FC<any> = (props) => {
-    const context = useAppContext();
-
     /** Gets all dataproviders of a screen */
     const dataProviders = useDataProviders(props.screenName);
     /** Gets all data of a dataprovider  */
@@ -50,8 +48,6 @@ const CustomChartScreen: FC<any> = (props) => {
             position: 'bottom'
         }
     };
-
-    console.log(customProp1, dataProviders)
 
     /** Write your own custom JSX for the replace-screen here */
     return(

@@ -15,7 +15,7 @@ const replaceScreens: CustomScreenType[] = [
       screen: <CustomChartScreen/>
     }
   ];
-  ```
+```
 ### Replace-Screen Properties
 Name | Type | Description
 --- | --- | --- |
