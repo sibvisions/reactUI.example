@@ -53,6 +53,6 @@ In the menu I click the screen which has been replaced.
 
 Here you can see my replace-screen. I am using the data provided by the java application to display my chart.
 
-![replace-screen-example](../readme-images/rs-example.png)
+![replace-screen-example](../readme-images/rs-example.PNG)
 
 [Replace-screen source can be found here](../../features/CustomChartScreen).
