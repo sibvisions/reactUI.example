@@ -1,5 +1,5 @@
 /** React imports */
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 
 /** scss import */
 import './ScreenWrapperFirst.scss'
@@ -28,6 +28,10 @@ const ScreenWrapperFirst:FC<any> = (props) => {
 
     const api = useAPI();
 
+    useEffect(() => {
+        const myTooltipItems = api.getToolbarItems()
+        console.log(myTooltipItems)
+      }, [api])
     // /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
     // useRemoveComponent("Fir-N7_B_DOOPEN");
 

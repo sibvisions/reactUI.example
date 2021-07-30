@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI } from 'reactUI/dist/moduleIndex'
+import { ReactUI, useAPI, useAppContext, useMenuItems } from 'reactUI/dist/moduleIndex'
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -22,7 +22,7 @@ import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
 import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
 import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';
 import CustomProjectScreen from './features/CustomProjectScreen';
-import { CustomScreenParameter } from '../../reactUI/dist/main/customTypes';
+import { CustomScreenParameter, CustomToolbarItem, EditableMenuItem } from '../../reactUI/dist/main/customTypes';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -31,6 +31,9 @@ import { CustomScreenParameter } from '../../reactUI/dist/main/customTypes';
  * and pass them as props to the ReactUI component.
  */
 const App: FC = () => {
+
+  const api = useAPI();
+  const appContext = useAppContext();
 
   /**
    * Add your custom-screens to an array as objects with properties:
@@ -138,6 +141,40 @@ const App: FC = () => {
     }
   ]
 
+  const toolbarItems: Array<EditableMenuItem|CustomToolbarItem> = [
+    {
+      screenName: "LiveCounter",
+      image: "fa-bookmark",
+      title: "New Custom ToolbarItem 1"
+    },
+    {
+      screenName: "Project Images",
+      image: "fa-check",
+      title: "New Custom ToolbarItem 2"
+    },
+    {
+      screenName: "com.sibvisions.apps.mobile.demo.screens.features.UpAndDownloadWorkScreen",
+      newTitle: "Changed Toolbar Title",
+      newIcon: "fa-bath"
+    },
+    {
+      screenName: "com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen",
+      remove: true
+    }
+  ]
+
+  const editedMenuItems: EditableMenuItem[] = [
+    {
+      screenName: "com.sibvisions.apps.mobile.demo.screens.features.FirstWorkScreen",
+      newTitle: "new First",
+      newIcon: "fa-bookmark"
+    },
+    {
+      screenName: "com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen",
+      remove: true
+    }
+  ]
+
 
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (
@@ -145,9 +182,11 @@ const App: FC = () => {
       customScreens={customScreens} 
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
-      screenWrappers={screenWrapperArray}
-      customAppWrapper={CustomAppWrapper}
+      //screenWrappers={screenWrapperArray}
+      //customAppWrapper={CustomAppWrapper}
       customScreenParameter={screenParameter}
+      customToolbarItems={toolbarItems}
+      //editedMenuItems={editedMenuItems}
       />
   );
 }

@@ -17,6 +17,7 @@ const customScreens: CustomScreenType[] = [
     }
   ];
   ```
+  
 ### Custom-Screen Properties
 Name | Type | Description
 --- | --- | --- |
