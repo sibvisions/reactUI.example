@@ -43,25 +43,48 @@ const App: FC = () => {
    * icon: an icon which will be displayed in the menu, FontAwesome like: fa-xxx, PrimeIcons like: pi-xxx FontAwesome preferred!
    * replace: replace an existing screen with the given name, the screen-name can be found in VisionX
    */
-  const customScreens: CustomScreenType[] = [
-    {
-      name: "LiveCounter",
+  // const customScreens: CustomScreenType[] = [
+  //   {
+  //     id: "LiveCounter",
+  //     text: "Live Counter",
+  //     menuGroup: "Custom Screens",
+  //     icon: "pi-plus",
+  //   },
+  //   {
+  //     name: "Project Images",
+  //     menuGroup: "Custom Screens",
+  //     screen: <CustomProjectScreen />,
+  //     icon: "fa-project-diagram",
+  //   },
+  //   {
+  //     replace: true,
+  //     name: "Cha-OL", 
+  //     screen: <CustomChartScreen/>
+  //   }
+  // ];
+
+  const onRegister = () => {
+    api.registerScreen("LiveCounter", <CustomCounter />);
+    api.registerScreen("ProjectImages", <CustomProjectScreen />);
+  }
+
+  const onMenu = () => {
+    api.addMenuItem({
+      id: "LiveCounter",
+      text: "Live Counter",
       menuGroup: "Custom Screens",
-      screen: <CustomCounter />,
       icon: "pi-plus"
-    },
-    {
-      name: "Project Images",
+    });
+
+    api.addMenuItem({
+      id: "ProjectImages",
+      text: "Project Images",
       menuGroup: "Custom Screens",
-      screen: <CustomProjectScreen />,
       icon: "fa-project-diagram"
-    },
-    {
-      replace: true,
-      name: "Cha-OL", 
-      screen: <CustomChartScreen/>
-    }
-  ];
+    });
+
+    appContext.server.test();
+  }
 
   /**
    * Add your custom-components to an array as objects with properties:
@@ -179,7 +202,9 @@ const App: FC = () => {
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (
     <ReactUI 
-      customScreens={customScreens} 
+      onRegister={onRegister}
+      onMenu={onMenu}
+      //customScreens={customScreens} 
       customComponents={customComponentsArray}
       customStartupProps={customStartupProps}
       //screenWrappers={screenWrapperArray}
