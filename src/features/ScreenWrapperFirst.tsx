@@ -1,11 +1,11 @@
 /** React imports */
-import React, {FC, useEffect} from "react";
+import React, {FC, useEffect, useLayoutEffect} from "react";
 
 /** scss import */
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useAPI, useRemoveComponent } from "reactui/dist/moduleIndex";
+import { ScreenWrapper, useAPI, useScreen } from "reactui/dist/moduleIndex";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -18,6 +18,7 @@ import gal2 from "../assets/gal2.jpg";
 import gal3 from "../assets/gal3.jpg";
 import gal4 from "../assets/gal4.jpg";
 import gal5 from "../assets/gal5.jpg";
+import CustomCounter from "./CustomCounter";
 
 /** 
  * This component is an example for custom-displays, which allow the user to "design" their own "main" screen.
@@ -28,12 +29,17 @@ const ScreenWrapperFirst:FC<any> = (props) => {
 
     const api = useAPI();
 
-    useEffect(() => {
-        const myTooltipItems = api.getToolbarItems()
-        console.log(myTooltipItems)
-      }, [api])
+    const screen = useScreen(props.screenName);
+
     // /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
     // useRemoveComponent("Fir-N7_B_DOOPEN");
+
+    const onOpen = () => {
+        //screen.sendOpenScreenParameters({abc: "def", test: 789, xyz: true })
+        screen.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
+        //screen.removeComponent("Fir-N7_B_DOOPEN");
+        console.log(api.getUser())
+    }
 
     /** PrimeReact Carousel setup */
     const images:Array<any> = [
@@ -54,8 +60,8 @@ const ScreenWrapperFirst:FC<any> = (props) => {
      * Call screen where the workscreen should be displayed
      */
     return (
-        <ScreenWrapper>
-            {screen =>
+        <ScreenWrapper onOpen={onOpen}>
+            {workScreen =>
                 <div>
                     <div
                         style={{
@@ -69,9 +75,21 @@ const ScreenWrapperFirst:FC<any> = (props) => {
                         }}>
                         This is the start of my screen-wrapper for screen "First"!
                         <Button 
-                            onClick={() => api.sendScreenParameter(props.screenName, { testParam: 'test' })}
+                            onClick={() => screen.sendScreenParameter( { testParam: 'test' })}
                             style={{marginLeft: '5px'}}>
                             Click to send Screen-Parameter!
+                        </Button>
+                        <Button 
+                            onClick={() => api.sendOpenScreenRequest(
+                                "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen", 
+                                { testParam: 'test' }, true)}
+                            style={{marginLeft: '5px'}}>
+                            Click to open and send Parameter
+                        </Button>
+                        <Button 
+                            onClick={() => screen.sendCloseScreen({ closeParam: 'closing' }, false)}
+                            style={{marginLeft: '5px'}}>
+                            Click to close and send Parameter
                         </Button>
                     </div>
                     <div>
@@ -82,7 +100,7 @@ const ScreenWrapperFirst:FC<any> = (props) => {
                                 <Chip label="Google" icon="pi pi-google" className="p-mr-2 p-mb-2 sw-chip" />
                                 <Chip label="Microsoft" icon="pi pi-microsoft" className="p-mb-2 sw-chip" removable />
                             </div>
-                            {screen}
+                            {workScreen}
                         </div>
                     </div>
                     <div style={{ height: '200px' }}>

@@ -8,7 +8,7 @@ import { ScreenWrapper } from "reactui/dist/moduleIndex";
  * Without a screen-wrapper, the workscreen will take all available space of the "main" screen,
  * with a screen-wrapper the user can put together their own screen. The workscreen will use the remaining space
  */
-const ScreenWrapperSimple:FC = () => {
+const ScreenWrapperMouse:FC = () => {
     /** State for editor */
     const [text, setText] = useState<string|null>()
 
@@ -25,4 +25,4 @@ const ScreenWrapperSimple:FC = () => {
         </ScreenWrapper>
     )
 }
-export default ScreenWrapperSimple;
+export default ScreenWrapperMouse;

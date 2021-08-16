@@ -5,24 +5,21 @@ import React, { FC, useEffect } from 'react';
 import CustomCounter from './features/CustomCounter'
 import ScreenWrapperFirst from './features/ScreenWrapperFirst';
 import CustomChartScreen from './features/CustomChartScreen';
-import ScreenWrapperSimple from './features/ScreenWrapperSimple';
+import ScreenWrapperMouse from './features/ScreenWrapperMouse';
 import GlobalScreenWrapper from './features/GlobalScreenWrapper';
 import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI, useAPI, useAppContext, useMenuItems } from 'reactUI/dist/moduleIndex'
+import { ReactUI, useAPI, useAppContext} from 'reactUI/dist/moduleIndex'
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
 //import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import CustomScreenType from 'reactui/dist/main/customTypes/CustomScreenType';
-import CustomComponentType from 'reactui/dist/main/customTypes/CustomComponentType';
-import ScreenWrapperType from 'reactui/dist/main/customTypes/ScreenWrapperType';
 import CustomProjectScreen from './features/CustomProjectScreen';
-import { CustomScreenParameter, CustomToolbarItem, EditableMenuItem } from '../../reactUI/dist/main/customTypes';
+import ScreenWrapperChoice from './features/ScreenWrapperChoice';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -63,9 +60,18 @@ const App: FC = () => {
   //   }
   // ];
 
-  const onRegister = () => {
-    api.registerScreen("LiveCounter", <CustomCounter />);
-    api.registerScreen("ProjectImages", <CustomProjectScreen />);
+  const onStartup = () => {
+    api.addCustomScreen("LiveCounter", <CustomCounter />);
+    api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
+
+    api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
+
+    api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
+
+    api.addScreenWrapper("global", <GlobalScreenWrapper/>);
+    api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
+    api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
+    api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
   }
 
   const onMenu = () => {
@@ -83,135 +89,41 @@ const App: FC = () => {
       icon: "fa-project-diagram"
     });
 
-    appContext.server.test();
-  }
-
-  /**
-   * Add your custom-components to an array as objects with properties:
-   * name: the name of the component you want to replace, the component name can be found in VisionX
-   * component: the component you want to replace another component with, if not used, the component gets removed
-   */
-  const customComponentsArray: CustomComponentType[] = [
-    {
-      name: "Sec-BL_B_DOOPEN", 
-      component: <CustomCounter/>
-    },
-    {
-      name: "Con-CG_E_contacts_STREET"
-    }
-  ];
-
-  /**
-   * Add key-value objects to an array to send custom-startup properties to the server 
-   */
-  const customStartupProps = [
-    {
-      "test.parameter": true
-    }, 
-    {
-      test2: 'value2'
-    }
-  ];
-
-  /**
-   * Screen-wrappers are used to display your customized component instead of just the workscreen.
-   * In screen-wrappers you are able to decide where the workscreen should be displayed and if there should be other elements.
-   * For more info check out one of the examples.
-   * Add your screen-wrappers to an array as objects with properties:
-   * screen: (string string[]) name/s of screen/s where the screen-wrapper should be displayed,
-   *         use 'global' to set a screen-wrapper across all workscreens
-   * wrapper: the cscreen-wrapper to show on screen
-   * options: global (boolean, default true): if true or undefined, displays global screen-wrapper if available, false don't display global
-   */
-  const screenWrapperArray: ScreenWrapperType[] = [
-    {
-      screen: "global",
-      wrapper: <GlobalScreenWrapper/>,
-    },
-    {
-      screen: "Sim-SH",
-      wrapper: <ScreenWrapperSimple/>
-    },
-    {
-      screen: "Fir-N7",
-      wrapper: <ScreenWrapperFirst/>,
-      options: { global: false }
-    },
-    {
-      screen: ["Sec-BL"],
-      wrapper: <CustomGreenButtonScreen/>,
-      options: { global: true }
-    }
-  ]
-
-  const screenParameter: CustomScreenParameter[] = [
-    {
-      name: "Fir-N7",
-      parameter: {
-        abc: "def",
-        test: 123,
-        hello: false
-      }
-    },
-    {
-      name: "Sec-BL",
-      parameter: {
-        wyz: "tuv",
-        tset: 789,
-        bye: true
-      },
-      onClose: true
-    }
-  ]
-
-  const toolbarItems: Array<EditableMenuItem|CustomToolbarItem> = [
-    {
-      screenName: "LiveCounter",
-      image: "fa-bookmark",
-      title: "New Custom ToolbarItem 1"
-    },
-    {
-      screenName: "Project Images",
-      image: "fa-check",
-      title: "New Custom ToolbarItem 2"
-    },
-    {
-      screenName: "com.sibvisions.apps.mobile.demo.screens.features.UpAndDownloadWorkScreen",
-      newTitle: "Changed Toolbar Title",
-      newIcon: "fa-bath"
-    },
-    {
-      screenName: "com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen",
-      remove: true
-    }
-  ]
-
-  const editedMenuItems: EditableMenuItem[] = [
-    {
-      screenName: "com.sibvisions.apps.mobile.demo.screens.features.FirstWorkScreen",
+    api.editMenuItem({
+      id: "com.sibvisions.apps.mobile.demo.screens.features.FirstWorkScreen",
       newTitle: "new First",
       newIcon: "fa-bookmark"
-    },
-    {
-      screenName: "com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen",
-      remove: true
-    }
-  ]
+    });
+
+    api.removeMenuItem("com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen");
+
+    api.addToolbarItem({
+      id: "LiveCounter",
+      icon: "fa-bookmark",
+      title: "New Custom ToolbarItem 1"
+    });
+
+    api.addToolbarItem({
+      id: "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen",
+      icon: "fa-bookmark",
+      title: "Popup"
+    });
+
+    api.editToolbarItem({
+      id: "com.sibvisions.apps.mobile.demo.screens.features.UpAndDownloadWorkScreen",
+      newTitle: "Changed Toolbar Title",
+      newIcon: "fa-bath"
+    });
+
+    api.removeToolbarItem("com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen");
+  }
 
 
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (
     <ReactUI 
-      onRegister={onRegister}
+      onStartup={onStartup}
       onMenu={onMenu}
-      //customScreens={customScreens} 
-      customComponents={customComponentsArray}
-      customStartupProps={customStartupProps}
-      //screenWrappers={screenWrapperArray}
-      //customAppWrapper={CustomAppWrapper}
-      customScreenParameter={screenParameter}
-      customToolbarItems={toolbarItems}
-      //editedMenuItems={editedMenuItems}
       />
   );
 }
