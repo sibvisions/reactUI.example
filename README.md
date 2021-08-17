@@ -7,12 +7,42 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 - run `npm link reactUI` in your reactUI.example directory
 - run `npm link ../reactUI/node_modules/react` in your reactUI.example directory to prevent react collision errors
 
+## Getting Started
+Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
+
+### Properties for the ReactUI Component
+Name | Type | Description
+--- | --- | --- |
+customAppWrapper | React.ComponentType | A custom-application-frame for your WebApp, check out the link below for more info
+onStartup | Function | A function which will be called, when the application sends the startup request to the server
+onLogin | Function | A function which will be called, when the user logs in.
+onMenu | Function | A function which will be called, when the client receives the menu-information from the server.
+onOpenScreen | Funtion | a function which will be called when a screen is opened.
+
+### Example
+```typescript
+  return (
+    <ReactUI 
+      onStartup={onStartup}
+      onMenu={onMenu}
+      onLogin={onLogin}
+      customAppWrapper={CustomAppWrapper}
+      />
+  );
+```
+
 ## Features
+
+### **To use the api functions define a variable with the 'useAPI' hook!**
+```typescript
+const api = useAPI();
+```
+
 - [Custom-Screens](src/readme-files/custom-screen) - add your react code as screens to your VisionX application.
 - [Replace-Screens](src/readme-files/replace-screen) - replace an already existing screen of your VisionX application with your own screen and reuse use its data.
-- [Custom-Components](src/readme-files/custom-component) - replace already existing components of a screen with your custom created components.
-- [Removing-Components](src/readme-files/remove-component) - remove an existing component from a screen.
+- [Custom-Components](src/readme-files/custom-component) - replace already existing components of a screen with your custom created components or remove an existing component from a screen.
 - [Custom-Startup-Properties](src/readme-files/custom-startup-props) - Send custom-startup-properties from your WebApp to the server.
 - [Screen-Wrapper](src/readme-files/screen-wrapper) - Wrap your workscreen with customized JSX. By screen(s) or global.
 - [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
 - [Send Screen-Parameter to the Server](src/readme-files/screen-parameter) - Send screen-parameter to the server.
+- [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.

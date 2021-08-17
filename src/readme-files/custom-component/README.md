@@ -1,5 +1,7 @@
 # Custom-Components
 
+## 1. Adding Custom Components
+
 ## Overview
 Custom-Components replace already existing components of a screen with your own react-coded components. The custom-components
 will be at the same spot in the layout, as the components which got replaced. The size of the custom-component gets measured
@@ -9,49 +11,64 @@ Use custom-components if you want to add your react components, which aren't sup
 
 ## Implementation
 
-1. Add an array for your custom-components (type CustomComponentType[]).
+1. First you need to register a [screen-wrapper](src/readme-files/screen-wrapper) for the screen where the custom-component is placed. In the screen-wrapper create a variable which uses the ```useScreen``` hook to gain access to screen-specific functions. Pass the ```props.screenName``` property to the hook.
 
 ```typescript
-  const customComponentsArray: CustomComponentType[] = [
-    {
-      name: "Sec-BL_B_DOOPEN", 
-      component: <CustomCounter/>
-    },
-    {
-      name: "Con-CG_E_contacts_STREET"
-    }
-  ];
+const screen = useScreen(props.screenName);
 ```
 
-### Custom-Screen Properties
-Name | Type | Description
---- | --- | --- |
-name | string | The name of the component you want to replace, can be found in VisionX.
-component | ReactElement, undefined | The custom component added. Undefined if the component should be removed.
+2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```screen.addCustomComponent``` function.
 
-2. Add the array to your "ReactUI" component as property "customComponents" (The array from part 1 can be written directly into this property as well.)
+### screen.addCustomComponent Parameters
+Parameter | Type | Description
+--- | --- | --- |
+id | string | ID of the component you want to replace, can be found in VisionX.
+component | ReactElement | The custom component which should be added.
 
 ```typescript
-  return (
-    <ReactUI customComponents={customComponentsArray} />
-  );
+    const onOpen = () => {
+        screen.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
+    }
 ```
 
 ## Example
-For the first example I've replaced a button of a screen with a [react counter component](../../features/CustomCounter.tsx)
+I've replaced a button of a screen with a [react counter component](../../features/CustomCounter.tsx)
 
-### Here is a screenshot of the screen before I've added the customComponents array
+### Here is a screenshot of the screen before I've added the custom-component
 
 ![custom-component-before-replace](../readme-images/cc-sec-before.png)
 
-### When using the customComponents array
+### When adding the custom-component
 
 ![custom-component-after-replace](../readme-images/cc-sec-after.png)
 
-For the second example I've removed a text input from a screen using the "customComponents" array.
+## Removing Custom-Components
 
-### Before removing
-![custom-component-before-remove](../readme-images/cc-before-rem.png)
+## Overview
+Removes a component from a workscreen. The layout will be adjusted to the removed component. Used if you want to remove existing components from VisionX to not see them in web.
 
-### After removing
-![custom-component-after-remove](../readme-images/cc-after-rem.png)
+## Implementation
+
+1. The same as step 1 of adding custom-components above.
+
+2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```screen.removeComponent``` function.
+
+### screen.addCustomComponent Parameters
+Parameter | Type | Description
+--- | --- | --- |
+id | string | ID of the component you want to remove, can be found in VisionX.
+
+```typescript
+    const onOpen = () => {
+        screen.removeComponent("Fir-N7_B_DOOPEN");
+    }
+```
+
+## Example
+### Before I removed a component
+
+![before-removing-component](../readme-images/rc-before-rem.png)
+
+### After
+
+![after-removing-component](../readme-images/rc-after-rem.png)

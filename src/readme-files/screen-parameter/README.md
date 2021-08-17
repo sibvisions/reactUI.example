@@ -12,67 +12,71 @@ You will be able to send screen-parameter during:
 
 ## Implementation
 
-### 1. On Opening- and Closing Screen
-1. Add an array for your screen-parameter (type CustomScreenParameter[])
+### 1. Sending parameters during openScreen
+1. In a [screen-wrapper](src/readme-files/screen-wrapper) you are able to call the function ```api.sendOpenScreenRequest``` which will open a screen and can send screen-parameters. 
 
-```typescript
-  const screenParameter: CustomScreenParameter[] = [
-    {
-      name: "Fir-N7",
-      parameter: {
-        abc: "def",
-        test: 123,
-        hello: false
-      }
-    },
-    {
-      name: "Sec-BL",
-      parameter: {
-        wyz: "tuv",
-        tset: 789,
-        bye: true
-      },
-      onClose: true
-    }
-  ]
-```
-
-### Screen-Parameter Properties
-Name | Type | Description
+### api.sendOpenScreenRequest Parameters
+Parameter | Type | Description
 --- | --- | --- |
-name | string, string[] | Name(s) of the screen(s) where the screen-parameter are sent. Has to be the same name of the screen in VisionX!
-parameter | object | An object containing the screen-parameter.
-onClose | boolean | Flag to indicate whether to send the screen-parameter when the screen is opening or closing.
+id | string | ID of the screen you want to open, can be found in VisionX.
+parameter | { [key: string]: any } | The parameters to be sent.
 
-2. Add the array to your "ReactUI" component as property "customScreenParameter". (The array from part 1 can be written directly into this property as well) 
+### Example sending screen-parameter during openScreen
+Here I've added the ```api.sendOpenScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, the new screen gets opened and the parameter will be sent.
 
 ```typescript
-  return (<ReactUI customScreenParameter={screenParameter} />);
+  <Button 
+    onClick={() => api.sendOpenScreenRequest(
+    "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen", 
+    { testParam: 'test', hello: 'world' })}
+    style={{marginLeft: '5px'}}>
+    Click to open and send Parameter
+  </Button>
+```
+![open-screen-parameter](../readme-images/sp-open-button.PNG)
+![open-screen-parameter-console](../readme-images/sp-sent-os.PNG)
+
+### 2. Sending parameters during closeScreen
+1. In a screen-wrapper you are able to call the function ```api.sendCloseScreenRequest``` which will close a screen and send screen-parameters.
+
+### screen.sendCloseScreenRequest Parameters
+Parameter | Type | Description
+--- | --- | --- |
+parameter | { [key: string]: any } | The parameters to be sent.
+
+### Example sending screen-parameter during closeScreen
+Here I've added the ```screen.sendCloseScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, the screen gets closed and the parameter will be sent.
+
+```typescript
+  <Button 
+    onClick={() => screen.sendCloseScreenRequest({ closeParam: 'closing' })}
+    style={{marginLeft: '5px'}}>
+    Click to close and send Parameter
+  </Button>
 ```
 
-### 2. Send Screen-Parameter in Screen-Wrapper
-In your screen-wrapper component, use the useAPI hook to gain access to the sendScreenParameter function then you can call it whenever to send the screen-parameter to the server.
+![close-screen-parameter](../readme-images/sp-close-button.PNG)
+![close-screen-parameter-console](../readme-images/sp-sent-cs.PNG)
 
-sendScreenParameter(screenName:string, parameter:[key:string]:any)
-screenName: the name of your screen (props.screenName).
-parameter: the parameter object like above.
 
-## Example
+### 3. Send Screen-Parameter in Screen-Wrapper
+In your screen-wrapper component, use the useScreen hook to gain access to the ```screen.sendScreenParameter``` function then you can call it whenever to send the screen-parameter to the server.
 
-### OpenScreen CloseScreen
-After I've added the array from the "Implementation" part to my ReactUI component I open the screen "First". The setScreenParameter request is being sent to the server
+### screen.sendScreenRequest Parameters
+Parameter | Type | Description
+--- | --- | --- |
+parameter | { [key: string]: any } | The parameters to be sent.
 
-![open-console](../readme-images/openScreenParameter.png)
-![open-console-payload](../readme-images/openScreenParameter2.png)
+### Example sending screen-parameter
+Here I've added the ```screen.sendScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, parameter will be sent.
 
-The process for closeScreen is practically the same.
-
-### In a Screen-Wrapper
-I've added a button to my [screen-wrapper example](../../features/ScreenWrapperFirst.tsx) which will send screen-parameter on click.
 ```typescript
-<Button 
-    onClick={() => api.sendScreenParameter(props.screenName, { testParam: 'test' })}
+  <Button 
+    onClick={() => screen.sendScreenParameter( { testParam: 'test' })}
     style={{marginLeft: '5px'}}>
     Click to send Screen-Parameter!
-</Button>
+  </Button>
 ```
+
+![close-screen-parameter](../readme-images/sp-send-button.PNG)
+![close-screen-parameter-console](../readme-images/sp-sent-sp.PNG)

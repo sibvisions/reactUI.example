@@ -30,92 +30,70 @@ import ScreenWrapperChoice from './features/ScreenWrapperChoice';
 const App: FC = () => {
 
   const api = useAPI();
-  const appContext = useAppContext();
-
-  /**
-   * Add your custom-screens to an array as objects with properties:
-   * screenName: name of the screen used as routing and gets displayed in the menu-group
-   * menuGroup: menu-group the custom-screen should be added into, if the menu-group isn't already added a new menu-group is created
-   * customScreen: the component you want to add to the ReactUI
-   * icon: an icon which will be displayed in the menu, FontAwesome like: fa-xxx, PrimeIcons like: pi-xxx FontAwesome preferred!
-   * replace: replace an existing screen with the given name, the screen-name can be found in VisionX
-   */
-  // const customScreens: CustomScreenType[] = [
-  //   {
-  //     id: "LiveCounter",
-  //     text: "Live Counter",
-  //     menuGroup: "Custom Screens",
-  //     icon: "pi-plus",
-  //   },
-  //   {
-  //     name: "Project Images",
-  //     menuGroup: "Custom Screens",
-  //     screen: <CustomProjectScreen />,
-  //     icon: "fa-project-diagram",
-  //   },
-  //   {
-  //     replace: true,
-  //     name: "Cha-OL", 
-  //     screen: <CustomChartScreen/>
-  //   }
-  // ];
 
   const onStartup = () => {
-    api.addCustomScreen("LiveCounter", <CustomCounter />);
-    api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
-
-    api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
-
     api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
+  }
 
+  const onLogin = () => {
     api.addScreenWrapper("global", <GlobalScreenWrapper/>);
-    api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
-    api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
-    api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
+    if (api.getUser().userName === "admin") {
+      api.addCustomScreen("LiveCounter", <CustomCounter />);
+    }
+    else if (api.getUser().userName === "features") {
+      api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
+      api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
+      api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
+      api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
+      api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
+    }
   }
 
   const onMenu = () => {
-    api.addMenuItem({
-      id: "LiveCounter",
-      text: "Live Counter",
-      menuGroup: "Custom Screens",
-      icon: "pi-plus"
-    });
+    if (api.getUser().userName === "admin") {
+      api.addMenuItem({
+        id: "LiveCounter",
+        text: "Live Counter",
+        menuGroup: "Custom Screens",
+        icon: "pi-plus"
+      });
 
-    api.addMenuItem({
-      id: "ProjectImages",
-      text: "Project Images",
-      menuGroup: "Custom Screens",
-      icon: "fa-project-diagram"
-    });
+      api.addToolbarItem({
+        id: "LiveCounter",
+        icon: "fa-bookmark",
+        title: "New Custom ToolbarItem 1"
+      });
+    }
+    else if (api.getUser().userName === "features") {
+      api.addMenuItem({
+        id: "ProjectImages",
+        text: "Project Images",
+        menuGroup: "Custom Screens",
+        icon: "fa-project-diagram"
+      });
 
-    api.editMenuItem({
-      id: "com.sibvisions.apps.mobile.demo.screens.features.FirstWorkScreen",
-      newTitle: "new First",
-      newIcon: "fa-bookmark"
-    });
+      api.editMenuItem({
+        id: "com.sibvisions.apps.mobile.demo.screens.features.FirstWorkScreen",
+        newTitle: "new First",
+        newIcon: "fa-bookmark"
+      });
 
-    api.removeMenuItem("com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen");
+      api.removeMenuItem("com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen");
 
-    api.addToolbarItem({
-      id: "LiveCounter",
-      icon: "fa-bookmark",
-      title: "New Custom ToolbarItem 1"
-    });
+      api.addToolbarItem({
+        id: "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen",
+        icon: "fa-bookmark",
+        title: "Popup"
+      });
 
-    api.addToolbarItem({
-      id: "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen",
-      icon: "fa-bookmark",
-      title: "Popup"
-    });
+      api.editToolbarItem({
+        id: "com.sibvisions.apps.mobile.demo.screens.features.UpAndDownloadWorkScreen",
+        newTitle: "Changed Toolbar Title",
+        newIcon: "fa-bath"
+      });
 
-    api.editToolbarItem({
-      id: "com.sibvisions.apps.mobile.demo.screens.features.UpAndDownloadWorkScreen",
-      newTitle: "Changed Toolbar Title",
-      newIcon: "fa-bath"
-    });
-
-    api.removeToolbarItem("com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen");
+      api.removeToolbarItem("com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen");
+    }
   }
 
 
@@ -124,6 +102,8 @@ const App: FC = () => {
     <ReactUI 
       onStartup={onStartup}
       onMenu={onMenu}
+      onLogin={onLogin}
+      //customAppWrapper={CustomAppWrapper}
       />
   );
 }

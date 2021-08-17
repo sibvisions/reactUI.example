@@ -13,47 +13,34 @@ Use screen-wrappers if you want to display some of your own components as well a
 There are two modes for screen-wrappers.
 
 1. global: displays the screen-wrapper on every screen
-2. non-global: only displays the screen-wrappers on the given screens, single screen or multiple screens possible. (string, string[])
+2. non-global: only displays the screen-wrappers on the given screen.
 
 ## Implementation
 
-1. Add an array for your screen-wrappers (type ScreenWrapperType[]).
+1. In your main class (e.g. App.tsx) call the ```api.addScreenWrapper``` function, in a function which will then be passed prefereably as ```onLogin``` to your ```ReactUI``` component, onStartup is also possible, but onLogin is preferred so you can check which user should receive the screen-wrapper.
 
-```typescript
-  const screenWrapperArray: ScreenWrapperType[] = [
-    {
-      screen: "global",
-      wrapper: <GlobalScreenWrapper/>,
-    },
-    {
-      screen: "Fir-N7",
-      wrapper: <ScreenWrapperFirst/>,
-      options: { global: false }
-    },
-    {
-      screen: ["Sim-SH", "Sec-BL"],
-      wrapper: <ScreenWrapperSimple/>
-    }
-  ]
-```
-
-### Screen-Wrapper Properties
-Name | Type | Description
+### api.addScreenWrapper Parameters
+Parameter | Type | Description
 --- | --- | --- |
-screen | string, string[] | The name of the screen(s) you want to have wrapped.
+id | string | ID of the screen which will be wrapped.
 wrapper | ReactElement | The screen-wrapper you want to display.
 options | {global:boolean} | Currently only global attribute. If true, the global screen-wrapper gets displayed. If false, only the screen-wrapper for this screen gets displayed.
 
-2. Add the array to your "ReactUI" component as property "screenWrappers" (The array from part 1 can be written directly into this property as well).
+In this snippet I'm adding one global screen-wrapper to all users and 3 screen-wrappers to 3 different screens. Screen-wrpper "Fir-N7" also has the option ```{ global: false }``` which means that the global screen-wrapper won't be displayed on this screen.
 
 ```typescript
-  return (
-    <ReactUI screenWrappers={screenWrapperArray} />
-  );
+  const onLogin = () => {
+    api.addScreenWrapper("global", <GlobalScreenWrapper/>);
+    if (api.getUser().userName === "features") {
+      api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
+      api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
+      api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
+    }
+  }
 ```
 
 ### In your Wrapper Component
-Wrap your JSX code with the inported ScreenWrapper component. 
+Wrap your JSX code with the imported ScreenWrapper component. 
 
 Then use curly brackets to use the screen parameter. Place the screen parameter
 where you want to have the workscreen. See code snippet for more details.
@@ -61,6 +48,13 @@ where you want to have the workscreen. See code snippet for more details.
 [Check out an example](../../features/ScreenWrapperFirst.tsx)
 
 Note: For styling you may need to work with flexboxes.
+
+It is also possible to pass functions for events as properties to the screen-wrapper.
+
+### Screen-Wrapper Properties
+Name | Type | Description
+--- | --- | --- |
+onOpen | Function | A function which will be called when the screen-wrapper gets rendered.
 
 ## Example
 
@@ -90,4 +84,4 @@ Here you can see a screen-wrapper (the HTML Editor at the bottom) and the global
 
 [Screen-wrapper-First](../../features/ScreenWrapperFirst.tsx).
 
-[Screen-wrapper-Simple](../../features/ScreenWrapperSimple.tsx).
+[Screen-wrapper-Mouse](../../features/ScreenWrapperMouse.tsx).

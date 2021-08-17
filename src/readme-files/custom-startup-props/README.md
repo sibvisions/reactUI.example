@@ -7,23 +7,15 @@ Used if you want to have extra properties sent by the WebApp to work with them i
 
 ## Implementation
 
-1. Add an array for your custom-startup-properties. Add your key-value pairs as objects to the array.
+1. Create a function you will then pass as ```onStartup``` function to your ```ReactUI``` component. In this function call the ```api.addStartupProperties``` function and add an array with your key-value pairs as objects.
+
+### api.addStartupProperties Parameters
+Parameter | Type | Description
+--- | --- | --- |
+startupProps | Array<[key:string]: any> | Array of the startup properties to be sent
 
 ```typescript
-  const customStartupProps = [
-    {
-      "test.parameter": true
-    }, 
-    {
-      test2: 'value2'
-    }
-  ];
-```
-
-2. Add the array to your "ReactUI" component as property "customStartupProps" (The array from part 1 can be written directly into this property as well.)
-
-```typescript
-  return (
-    <ReactUI customStartupProps={customStartupProps} />
-  );
+  const onStartup = () => {
+    api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
+  }
 ```

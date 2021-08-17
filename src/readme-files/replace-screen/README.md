@@ -5,30 +5,20 @@ Replace-screens replace an already existing screen in VisionX with your own reac
 Use replace-screens to develop custom screens with react, while still being able to use the data of the replaced screen from your java application!
 
 ## Implementation
-1. Add an array for your replace-screens (type CustomScreenType[], the same array as custom-screens).
+1. In your main class (e.g. App.tsx) call the ```api.addReplaceScreen``` function, in a function which will then be passed prefereably as ```onLogin``` to your ```ReactUI``` component, onStartup is also possible, but onLogin is preferred so you can check which user should receive the replace-screen.
 
-```typescript
-const replaceScreens: CustomScreenType[] = [
-    {
-      replace: true,
-      name: "Cha-OL", 
-      screen: <CustomChartScreen/>
-    }
-  ];
-```
-### Replace-Screen Properties
-Name | Type | Description
+### api.addReplaceScreen Parameters
+Parameter | Type | Description
 --- | --- | --- |
-name | string | Name of the screen you want to replace. Has to be the same name of the screen in VisionX!
-screen | ReactElement | the component you want to add as replace-screen.
-replace | boolean | Flag to indicate that a screen is being replaced.
-
-2. Add the array to your "ReactUI" component as property "customScreens". (The array from part 1 can be written directly into this property as well. Custom-screens and replace-screens are mixed!) 
+id | string | ID of the screen you want to replace. Has to be the same name of the screen in VisionX!
+screen | ReactElement | The component you want to add as replace-screen.
 
 ```typescript
-  return (
-    <ReactUI customScreens={replaceScreens} />
-  );
+  const onLogin = () => {
+    if (api.getUser().userName === "features") {
+      api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
+    }
+  }
 ```
 
 ### Using Data of a Replaced Screen
