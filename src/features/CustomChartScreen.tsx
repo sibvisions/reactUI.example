@@ -1,12 +1,12 @@
 /** React imports */
-import React, {FC, useEffect, useMemo} from "react";
+import React, {FC, useMemo} from "react";
 
 /** scss import */
 import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI/dist/moduleIndex";
+import { useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI";
 
 /**
  * This component is an example for replace-screens. It replaces an existing screen sent by the server with your own custom-screen,
@@ -14,6 +14,7 @@ import { useDataProviderData, useDataProviders, useGetCustomProperty } from "rea
  * A replace-screen receives props: screenName - the name of the screen to receive dataProviders and data
  */
 const CustomChartScreen: FC<any> = (props) => {
+    console.log(props)
     /** Gets all dataproviders of a screen */
     const dataProviders = useDataProviders(props.screenName);
     /** Gets all data of a dataprovider  */

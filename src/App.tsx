@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI, useAPI, useAppContext} from 'reactUI/dist/moduleIndex'
+import { ReactUI, useAPI } from 'reactUI';
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -20,6 +20,7 @@ import 'primeicons/primeicons.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import CustomProjectScreen from './features/CustomProjectScreen';
 import ScreenWrapperChoice from './features/ScreenWrapperChoice';
+import CustomBrowser from './features/CustomBrowser';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -36,7 +37,7 @@ const App: FC = () => {
   }
 
   const onLogin = () => {
-    api.addScreenWrapper("global", <GlobalScreenWrapper/>);
+    //api.addScreenWrapper("global", <GlobalScreenWrapper/>);
     if (api.getUser().userName === "admin") {
       api.addCustomScreen("LiveCounter", <CustomCounter />);
     }
@@ -44,8 +45,9 @@ const App: FC = () => {
       api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
       api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
       api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
-      api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
-      api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
+      //api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
+      //api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
+      api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
     }
   }
 

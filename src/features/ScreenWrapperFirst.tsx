@@ -5,7 +5,7 @@ import React, {FC, useEffect, useLayoutEffect} from "react";
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useAPI, useScreen } from "reactui/dist/moduleIndex";
+import { ScreenWrapper, useAPI, useScreen } from "reactUI";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
