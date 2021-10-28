@@ -7,7 +7,7 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 - run `npm link reactUI` in your reactUI.example directory
 - run `npm link ../reactUI/node_modules/react` in your reactUI.example directory to prevent react collision errors
 - if you run `npm install`, you have to repeat step 2 and 3!
-- if you run into issues, where it says that reactUI can't be found, run npm run bundle in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
+- if you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
 
 ## Getting Started
 Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
