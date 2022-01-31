@@ -12,19 +12,21 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 ## Getting Started
 Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
 
-### Config.JSON
+### config.json
 If you don't enter the required properties in the URL, it is also possible to add a config.json file into your public directory:
 ```json
 {
-    "appName": [application name here],
-    "baseURL": [baseURL here],
-    "username": [username here],
-    "password": [password here],
-    "deviceMode": [deviceMode],
-    "language": [language (en, de)],
-    "logoBig": [path to logo in public directory],
-    "logoSmall": [path to logo in public directory],
-    "logoLogin": [path to logo in public directory]
+    "appName": "[application name here]",
+    "baseUrl": "[baseUrl here]",
+    "username": "[username here]",
+    "password": "[password here]",
+    "deviceMode": "[deviceMode]",
+    "langCode": "[language (en, de)]",
+    "logoBig": "[path to logo in public directory]",
+    "logoSmall": "[path to logo in public directory]",
+    "logoLogin": "[path to logo in public directory]"
+    "theme": "[theme here]",
+    "colorScheme": "[color-scheme here]"
 }
 ```
 
