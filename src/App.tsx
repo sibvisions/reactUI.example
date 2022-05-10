@@ -17,7 +17,6 @@ import { ReactUI, useAPI } from 'reactUI';
 //import 'primereact/resources/themes/saga-blue/theme.css';
 //import 'primereact/resources/primereact.css';
 import 'primeicons/primeicons.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import CustomProjectScreen from './features/CustomProjectScreen';
 import ScreenWrapperChoice from './features/ScreenWrapperChoice';
 import CustomBrowser from './features/CustomBrowser';
@@ -47,7 +46,7 @@ const App: FC = () => {
       api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
       //api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
       //api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
-      api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
+      //api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
     }
   }
 
@@ -71,7 +70,7 @@ const App: FC = () => {
         id: "ProjectImages",
         text: "Project Images",
         menuGroup: "Custom Screens",
-        icon: "fa-project-diagram"
+        icon: "fa-cloud-download"
       });
 
       api.editMenuItem({
