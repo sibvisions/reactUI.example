@@ -3,6 +3,7 @@
 This example application demonstrates using the [reactUI](https://github.com/sibvisions/reactUI) as external library. The application will add custom screens and will use other external libraries to demonstrate the full power.
 
 ## Dev Setup
+- If you are using create-react-app make sure to downgrade react to v17.0.x (https://stackoverflow.com/a/71908461)
 - run `npm install @sibvisions/reactui` to install the reactUI as dependency
 
 ## Getting Started
@@ -14,7 +15,7 @@ If you don't enter the required properties in the URL, it is also possible to ad
 {
     "appName": "[application name here]",
     "baseUrl": "[baseUrl here]",
-    "username": "[username here]",
+    "userName": "[username here]",
     "password": "[password here]",
     "deviceMode": "[deviceMode]",
     "langCode": "[language (en, de)]",
