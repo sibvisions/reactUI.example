@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { ScreenWrapper } from "reactUI";
+import { ScreenWrapper } from "@sibvisions/reactui";
 
 /** scss import */
 import './GlobalScreenWrapper.scss'

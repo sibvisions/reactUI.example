@@ -1,7 +1,7 @@
 /** React imports */
 import React, {FC, useState} from "react";
 import { Editor } from 'primereact/editor';
-import { ScreenWrapper } from "reactUI";
+import { ScreenWrapper } from "@sibvisions/reactui";
 
 /** 
  * This component is an example for screen-wrapper, which allow the user to design their own "main" screen.

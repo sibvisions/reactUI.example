@@ -1,11 +1,11 @@
 /** React imports */
-import React, {FC, useEffect, useLayoutEffect} from "react";
+import React, {FC} from "react";
 
 /** scss import */
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useAPI, useScreen } from "reactUI";
+import { ScreenWrapper, useAPI, useScreen } from "@sibvisions/reactui";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';

@@ -6,7 +6,7 @@ import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { useDataProviderData, useDataProviders, useGetCustomProperty } from "reactUI";
+import { useDataProviderData, useDataProviders, useGetCustomProperty } from "@sibvisions/reactui";
 
 /**
  * This component is an example for replace-screens. It replaces an existing screen sent by the server with your own custom-screen,

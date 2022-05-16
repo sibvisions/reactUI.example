@@ -1,6 +1,6 @@
 /** React imports */
 import React, {FC} from "react";
-import { useMenuItems, ProfileMenu } from "reactUI";
+import { useMenuItems, ProfileMenu } from "@sibvisions/reactui";
 import { Menubar } from "primereact/menubar";
 
 /** scss import */

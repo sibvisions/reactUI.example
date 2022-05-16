@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI, useAPI } from 'reactUI';
+import { ReactUI, useAPI } from '@sibvisions/reactui';
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -20,6 +20,8 @@ import 'primeicons/primeicons.css';
 import CustomProjectScreen from './features/CustomProjectScreen';
 import ScreenWrapperChoice from './features/ScreenWrapperChoice';
 import CustomBrowser from './features/CustomBrowser';
+import ScreenWrapperContacts from './features/ScreenWrapperContacts';
+import ScreenWrapperReactComp from './features/ScreenWrapperReactComp';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -39,6 +41,8 @@ const App: FC = () => {
     //api.addScreenWrapper("global", <GlobalScreenWrapper/>);
     if (api.getUser().userName === "admin") {
       api.addCustomScreen("LiveCounter", <CustomCounter />);
+      api.addScreenWrapper("Con-CG", <ScreenWrapperContacts />);
+      api.addScreenWrapper("ReaComTes-303", <ScreenWrapperReactComp />)
     }
     else if (api.getUser().userName === "features") {
       api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
