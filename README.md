@@ -3,6 +3,15 @@
 This example application demonstrates using the [reactUI](https://github.com/sibvisions/reactUI) as external library. The application will add custom screens and will use other external libraries to demonstrate the full power.
 
 ## Dev Setup
+
+### With npm link
+- run `npm link` in your reactUI directory
+- run `npm link reactUI` in your reactUI.example directory
+- run `npm link ../reactUI/node_modules/react` in your reactUI.example directory to prevent react collision errors
+- if you run `npm install`, you have to repeat step 2 and 3!
+- if you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
+
+### With npm install
 - If you are using create-react-app make sure to downgrade react to v17.0.x (https://stackoverflow.com/a/71908461)
 - run `npm install @sibvisions/reactui` to install the reactUI as dependency
 
