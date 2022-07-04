@@ -1,10 +1,9 @@
 import React, { FC, useState } from "react";
 import { useAPI, ScreenWrapper, UIToggleButton } from "@sibvisions/reactui"
 
-const ScreenWrapperButton: FC<any> = (props) => {
-    const [text1, setText1] = useState("not pressed")
+const ScreenWrapperButton: FC<any> = () => {
+    const [text1, setText1] = useState("togglebutton not pressed")
     const [text2, setText2] = useState<boolean|undefined>(undefined)
-
     const api = useAPI();
 
     const onOpen = () => {
@@ -24,8 +23,16 @@ const ScreenWrapperButton: FC<any> = (props) => {
             {screen =>
                 <>
                     <div>
-                        {"Test für pressed " + text1}
-                        {" Test für tb state " + text2}
+                        <span style={{fontWeight: "bold"}}>
+                            Test for pressed: 
+                        </span>
+                        {" " + text1}
+                    </div>
+                    <div>
+                        <span style={{fontWeight: "bold"}}>
+                            Test for tb state: 
+                        </span>
+                        {" " + text2}
                     </div>
                     {screen}
                 </>

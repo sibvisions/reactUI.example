@@ -67,6 +67,7 @@ const api = useAPI();
 - [Custom-Screens](src/readme-files/custom-screen) - add your react code as screens to your VisionX application.
 - [Replace-Screens](src/readme-files/replace-screen) - replace an already existing screen of your VisionX application with your own screen and reuse use its data.
 - [Custom-Components](src/readme-files/custom-component) - replace already existing components of a screen with your custom created components or remove an existing component from a screen.
+- [Extend-Components](src/readme-files/extend-components) - extend existent components events with your own functions.
 - [Custom-Startup-Properties](src/readme-files/custom-startup-props) - Send custom-startup-properties from your WebApp to the server.
 - [Screen-Wrapper](src/readme-files/screen-wrapper) - Wrap your workscreen with customized JSX. By screen(s) or global.
 - [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
