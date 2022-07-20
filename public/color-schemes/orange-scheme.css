@@ -1,3 +1,31 @@
+/* Copyright 2022 SIB Visions GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+/* Copyright 2022 SIB Visions GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 :root {
   --login-mask-background: rgb(245, 245, 245, 0.93);
   --login-logo-background: #ffffff;
@@ -9,6 +37,7 @@
   --topbar-logo-background: linear-gradient(270deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
   --topbar-button-background: transparent;
   --topbar-button-hover-background: #d67b13;
+  --topbar-button-text-color: var(--topbar-text-color);
   --profile-background: #f78500;
   --profile-hover-background: #d67b13;
   --profile-text-color: #ffffff;
@@ -88,6 +117,7 @@
   --tree-border: 1px solid #dee2e6;
   --tree-item-hover-background: #e9ecef;
   --tree-selected-item-background: #fdefd4;
+  --tree-even-background: var(--table-row-odd-background);
   --html-toolbar-background: #f8f9fa;
   --html-toolbar-border: 1px solid #dee2e6;
   --html-toolbar-button-hover-background: #000000;
@@ -99,8 +129,8 @@
   --message-warning-header-background: #ffcf40;
   --message-warning-header-close-hover: #ebbd35;
   --message-warning-header-color: #ffffff;
-  --message-error-header-background: #ff364a;
-  --message-error-header-close-hover: #db2739;
+  --message-error-header-background: #CC0C39;
+  --message-error-header-close-hover: #a92230;
   --message-error-header-color: #ffffff;
   --message-question-header-background: #17c0eb;
   --message-question-header-close-hover: #13aacf;
@@ -176,7 +206,7 @@ body {
 
 .p-button.p-button-icon-only.menu-topbar-buttons {
   background: var(--topbar-button-background);
-  color: var(--topbar-text-color);
+  color: var(--topbar-button-text-color);
   border-radius: var(--button-border-radius); }
   .p-button.p-button-icon-only.menu-topbar-buttons:hover {
     background: var(--topbar-button-hover-background); }
@@ -628,9 +658,31 @@ body {
     background: var(--table-row-hover-background);
     color: var(--text-color); }
 
+.p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row.p-row-odd > td.p-selectable-cell:not(.p-highlight):hover {
+  background: initial;
+  color: var(--table-cell-hover-color); }
+
+.p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row.p-row-odd > td.p-selectable-cell:not(.p-highlight).cell-required:hover {
+  background: var(--table-required-odd-background);
+  color: var(--table-cell-hover-color); }
+
+.p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row.p-row-odd > td.p-selectable-cell:not(.p-highlight).cell-readonly:hover {
+  background: var(--table-readonly-odd-background);
+  color: var(--table-cell-hover-color);
+  opacity: 0.8; }
+
 .p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row > td.p-selectable-cell:not(.p-highlight):hover {
   background: initial;
   color: var(--table-cell-hover-color); }
+
+.p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row > td.p-selectable-cell:not(.p-highlight).cell-required:hover {
+  background: var(--table-required-even-background);
+  color: var(--table-cell-hover-color); }
+
+.p-datatable.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row > td.p-selectable-cell:not(.p-highlight).cell-readonly:hover {
+  background: var(--table-readonly-even-background);
+  color: var(--table-cell-hover-color);
+  opacity: 0.8; }
 
 .rc-toolbar {
   background: var(--toolbar-background);
@@ -681,8 +733,13 @@ body {
 .error-dialog .p-dialog-header {
   background: var(--message-error-header-background);
   color: var(--message-error-header-color); }
-  .error-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
-    background: var(--message-error-header-close-hover); }
+  .error-dialog .p-dialog-header .p-dialog-header-icon:focus {
+    box-shadow: none; }
+  .error-dialog .p-dialog-header .p-dialog-header-icon:enabled {
+    color: var(--message-error-header-color); }
+    .error-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+      background: var(--message-error-header-close-hover);
+      color: var(--message-error-header-color); }
 
 .error-dialog .p-dialog-footer {
   border-bottom-left-radius: var(--dialog-border-radius);
@@ -795,6 +852,14 @@ body {
   border: var(--tree-border);
   color: var(--text-color);
   border-radius: var(--table-border-radius); }
+  .p-tree .p-tree-container > .p-treenode:nth-child(odd) {
+    background: var(--tree-background); }
+  .p-tree .p-tree-container > .p-treenode:nth-child(even) {
+    background: var(--tree-even-background); }
+  .p-tree .p-tree-container .p-treenode .p-treenode-children .p-treenode:nth-child(odd) {
+    background: var(--tree-background); }
+  .p-tree .p-tree-container .p-treenode .p-treenode-children .p-treenode:nth-child(even) {
+    background: var(--tree-even-background); }
   .p-tree .p-tree-container .p-treenode .p-treenode-content.p-treenode-selectable:not(.p-highlight):hover {
     background: var(--tree-item-hover-background);
     color: var(--text-color); }
@@ -805,11 +870,11 @@ body {
       .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:enabled:hover {
         color: var(--text-color);
         background: var(--tree-selected-item-background); }
+    .p-tree .p-tree-container .p-treenode .p-treenode-content .p-tree-toggler:focus {
+      box-shadow: none; }
   .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
     background: var(--tree-selected-item-background);
     color: var(--text-color); }
-  .p-tree .p-tree-container .p-treenode .p-treenode-content:focus {
-    box-shadow: var(--focus-box-shadow); }
 
 .loading-screen {
   background: -webkit-radial-gradient(119% 190% at -6% -20%, var(--loading-screen-left-background) 70%, var(--loading-screen-right-background) 70%);

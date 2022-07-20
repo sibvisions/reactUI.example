@@ -1,5 +1,18 @@
+/* Copyright 2022 SIB Visions GmbH
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 :root {
-  --font-family: 'Roboto', sans-serif;
   --font-size: 14px;
   --login-form-top-bottom-padding: 40px;
   --login-form-left-right-padding: 40px;
@@ -16,8 +29,8 @@
   --std-profile-pic: 40px;
   --std-profile-separator-margin: 4px;
   --std-profile-submenu-width-small: 10rem;
-  --std-topbar-buttons: 60px;
-  --std-topbar-buttons-small: 40px;
+  --topbar-button-size: 60px;
+  --topbar-button-size-small: 40px;
   --std-fadeout-width: 20px;
   --std-fadeout-left: calc(var(--std-menu-collapsed-width) - var(--std-fadeout-width));
   --std-menu-header-padding: 1rem 1rem 1rem 0.625rem;
@@ -47,18 +60,20 @@
   --radiobutton-size: 20px;
   --tab-padding: 0rem 1rem;
   --table-header-padding: 0.6rem 1rem;
+  --table-cell-padding-top-bottom: 0.2rem;
+  --table-cell-padding-left-right: 0.4rem;
   --table-data-height: 27px;
   --label-padding: 9px;
   --menubar-height: 40px;
   --menuicon-size: 14px;
+  --dialog-header-padding: 1rem;
+  --error-dialog-min-width: 205px;
   --error-dialog-details-gap: 1rem;
-  --error-dialog-textarea-width: 30rem;
   --error-dialog-textarea-height: 8rem;
   --error-dialog-icon-size: 2rem; }
 
 body {
-  font-size: var(--font-size);
-  font-family: var(--font-family); }
+  font-size: var(--font-size); }
 
 .login-form .p-fluid {
   padding: calc(var(--login-form-top-bottom-padding) / 2) var(--login-form-left-right-padding) var(--login-form-top-bottom-padding); }
@@ -100,22 +115,8 @@ body {
     width: var(--std-logo-width); }
 
 .basti .std-menu .p-button.p-button-icon-only.menu-topbar-buttons {
-  width: var(--std-topbar-buttons);
-  height: var(--std-topbar-buttons); }
-
-.basti .std-menu .profile-menu {
-  height: var(--std-profile-height); }
-  .basti .std-menu .profile-menu .p-menubar {
-    height: 100%; }
-    .basti .std-menu .profile-menu .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
-      height: var(--std-profile-height);
-      padding: var(--std-profile-padding); }
-    .basti .std-menu .profile-menu .p-menubar .p-submenu-list {
-      width: calc(100% - var(--std-profile-separator-margin));
-      margin-left: var(--std-profile-separator-margin); }
-
-.basti .std-menu .vl {
-  height: var(--std-profile-height); }
+  width: var(--topbar-button-size);
+  height: var(--topbar-button-size); }
 
 .basti .std-menu .profile-image, .basti .std-menu .profile-image-null {
   width: var(--std-profile-pic);
@@ -152,6 +153,20 @@ body {
   left: var(--std-fadeout-left);
   width: var(--std-fadeout-width);
   margin-top: var(--std-header-height); }
+
+.basti .profile-menu {
+  height: var(--std-profile-height); }
+  .basti .profile-menu .p-menubar {
+    height: 100%; }
+    .basti .profile-menu .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+      height: var(--std-profile-height);
+      padding: var(--std-profile-padding); }
+    .basti .profile-menu .p-menubar .p-submenu-list {
+      width: calc(100% - var(--std-profile-separator-margin));
+      margin-left: var(--std-profile-separator-margin); }
+
+.basti .vl {
+  height: var(--std-profile-height); }
 
 .basti .corp-menu .corp-menu-header {
   height: var(--corp-header-height); }
@@ -205,8 +220,7 @@ body {
     font-size: calc(var(--corp-speeddial-size) / 2); }
 
 .basti .p-component {
-  font-size: var(--font-size);
-  font-family: var(--font-family); }
+  font-size: var(--font-size); }
 
 .basti .p-inputtext {
   padding: var(--input-padding); }
@@ -221,6 +235,9 @@ body {
   padding: var(--input-button-padding); }
   .basti .p-button.p-button-icon-only.p-autocomplete-dropdown > .p-button-icon, .basti .p-button.p-button-icon-only.p-datepicker-trigger > .p-button-icon {
     font-size: var(--input-button-icon-size); }
+
+.basti .open-cell-editor .p-button.p-button-icon-only:not(.rc-toolbar-button):not(.p-speeddial-button) {
+  padding: 0px; }
 
 .basti .p-checkbox {
   width: var(--checkbox-size);
@@ -254,27 +271,33 @@ body {
   padding: var(--table-header-padding); }
 
 .basti .rc-table .p-datatable-tbody > tr > td {
+  padding: var(--table-cell-padding-top-bottom) var(--table-cell-padding-left-right) var(--table-cell-padding-top-bottom) var(--table-cell-padding-left-right);
   height: calc(8px + var(--table-data-height)); }
 
 .basti .rc-label > span {
   padding: var(--label-padding) 0px; }
 
-.error-dialog .error-dialog-details-caption {
-  margin-top: var(--error-dialog-details-gap);
-  text-align: "left"; }
+.p-dialog .p-dialog-header {
+  padding: var(--dialog-header-padding); }
 
-.error-dialog .error-dialog-listbox {
-  margin-top: var(--error-dialog-details-gap); }
-
-.error-dialog .error-dialog-textarea {
-  margin-top: var(--error-dialog-details-gap);
-  min-width: var(--error-dialog-textarea-width);
-  width: 100%;
-  height: var(--error-dialog-textarea-height); }
-
-.error-dialog .error-dialog-icon {
-  min-width: var(--error-dialog-icon-size);
-  font-size: var(--error-dialog-icon-size); }
+.error-dialog {
+  min-width: var(--error-dialog-min-width); }
+  .error-dialog .error-dialog-details-caption {
+    margin-top: var(--error-dialog-details-gap);
+    text-align: "left"; }
+  .error-dialog .error-dialog-listbox {
+    margin-top: var(--error-dialog-details-gap); }
+    .error-dialog .error-dialog-listbox .p-listbox-item {
+      height: calc(8px + var(--table-data-height));
+      padding: var(--table-cell-padding-top-bottom) var(--table-cell-padding-left-right) var(--table-cell-padding-top-bottom) var(--table-cell-padding-left-right);
+      line-height: var(--table-data-height); }
+  .error-dialog .error-dialog-textarea {
+    margin-top: var(--error-dialog-details-gap);
+    width: 100%;
+    height: var(--error-dialog-textarea-height); }
+  .error-dialog .error-dialog-icon {
+    min-width: var(--error-dialog-icon-size);
+    font-size: var(--error-dialog-icon-size); }
 
 .p-autocomplete-panel.dropdown-table .p-autocomplete-item {
   height: calc(8px + var(--table-data-height)); }
@@ -300,8 +323,8 @@ body {
       max-height: var(--std-logo-height);
       width: var(--std-logo-width); }
   .basti .std-menu .p-button.p-button-icon-only.menu-topbar-buttons {
-    width: var(--std-topbar-buttons-small);
-    height: var(--std-topbar-buttons-small); }
+    width: var(--topbar-button-size-small);
+    height: var(--topbar-button-size-small); }
   .basti .std-menu .fadeout {
     margin-top: calc(var(--std-header-height) + var(--std-logo-height)); }
   .basti .corp-menu .p-button.p-button-icon-only.menu-topbar-buttons {
