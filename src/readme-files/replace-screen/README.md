@@ -45,4 +45,4 @@ Here you can see my replace-screen. I am using the data provided by the java app
 
 ![replace-screen-example](../readme-images/rs-example.PNG)
 
-[Replace-screen source can be found here](../../features/CustomChartScreen).
+[Replace-screen source can be found here](../../features/CustomChartScreen.tsx).
