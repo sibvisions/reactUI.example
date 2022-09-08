@@ -52,7 +52,7 @@ const App: FC = () => {
       api.addScreenWrapper("Com-K3", <ScreenWrapperButton />)
       //api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
       //api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
-      //api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
+      api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
     }
   }
 
@@ -62,13 +62,15 @@ const App: FC = () => {
         id: "LiveCounter",
         text: "Live Counter",
         menuGroup: "Custom Screens",
-        icon: "pi-plus"
+        icon: "pi-plus",
+        navigationName: ""
       });
 
       api.addToolbarItem({
         id: "LiveCounter",
         icon: "fa-bookmark",
-        title: "New Custom ToolbarItem 1"
+        title: "New Custom ToolbarItem 1",
+        navigationName: ""
       });
     }
     else if (api.getUser().userName === "features") {
@@ -76,7 +78,8 @@ const App: FC = () => {
         id: "ProjectImages",
         text: "Project Images",
         menuGroup: "Custom Screens",
-        icon: "fa-cloud-download"
+        icon: "fa-cloud-download",
+        navigationName: ""
       });
 
       api.editMenuItem({
@@ -90,7 +93,8 @@ const App: FC = () => {
       api.addToolbarItem({
         id: "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen",
         icon: "fa-bookmark",
-        title: "Popup"
+        title: "Popup",
+        navigationName: ""
       });
 
       api.editToolbarItem({
