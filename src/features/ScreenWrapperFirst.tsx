@@ -5,7 +5,7 @@ import React, {FC} from "react";
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useAPI, useScreen } from "@sibvisions/reactui";
+import { ScreenWrapper, useAPI } from "@sibvisions/reactui";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
@@ -29,15 +29,13 @@ const ScreenWrapperFirst:FC<any> = (props) => {
 
     const api = useAPI();
 
-    const screen = useScreen(props.screenName);
-
     // /** To remove a component from the workscreen, the component name is necesary and can be found in VisionX */
     // useRemoveComponent("Fir-N7_B_DOOPEN");
 
     const onOpen = () => {
-        //screen.sendOpenScreenParameters({abc: "def", test: 789, xyz: true })
-        screen.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
-        //screen.removeComponent("Fir-N7_B_DOOPEN");
+        api.sendScreenParameter(props.screenName, {abc: "def", test: 789, xyz: true })
+        api.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
+        api.removeComponent("Fir-N7_B_DOOPEN");
         console.log(api.getUser())
     }
 
@@ -75,7 +73,7 @@ const ScreenWrapperFirst:FC<any> = (props) => {
                         }}>
                         This is the start of my screen-wrapper for screen "First"!
                         <Button 
-                            onClick={() => screen.sendScreenParameter( { testParam: 'test' })}
+                            onClick={() => api.sendScreenParameter(props.screenName, { testParam: 'test' })}
                             style={{marginLeft: '5px'}}>
                             Click to send Screen-Parameter!
                         </Button>
@@ -87,7 +85,7 @@ const ScreenWrapperFirst:FC<any> = (props) => {
                             Click to open and send Parameter
                         </Button>
                         <Button 
-                            onClick={() => screen.sendCloseScreenRequest({ closeParam: 'closing' })}
+                            onClick={() => api.sendCloseScreenRequest(props.screenName, { closeParam: 'closing' })}
                             style={{marginLeft: '5px'}}>
                             Click to close and send Parameter
                         </Button>

@@ -73,3 +73,8 @@ const api = useAPI();
 - [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
 - [Send Screen-Parameter to the Server](src/readme-files/screen-parameter) - Send screen-parameter to the server.
 - [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.
+
+## Documentation
+- [Available API functions](src/readme-files/api-functions)
+- [Available hooks](src/readme-files/hooks)
+- [Available requests](src/readme-files/requests)

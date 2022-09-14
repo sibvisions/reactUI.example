@@ -45,11 +45,11 @@ Parameter | Type | Description
 parameter | { [key: string]: any } | The parameters to be sent.
 
 ### Example sending screen-parameter during closeScreen
-Here I've added the ```screen.sendCloseScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, the screen gets closed and the parameter will be sent.
+Here I've added the ```api.sendCloseScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, the screen gets closed and the parameter will be sent.
 
 ```typescript
   <Button 
-    onClick={() => screen.sendCloseScreenRequest({ closeParam: 'closing' })}
+    onClick={() => api.sendCloseScreenRequest(props.screenName, { closeParam: 'closing' })}
     style={{marginLeft: '5px'}}>
     Click to close and send Parameter
   </Button>
@@ -60,7 +60,7 @@ Here I've added the ```screen.sendCloseScreenRequest``` to the ```onClick``` eve
 
 
 ### 3. Send Screen-Parameter in Screen-Wrapper
-In your screen-wrapper component, use the useScreen hook to gain access to the ```screen.sendScreenParameter``` function then you can call it whenever to send the screen-parameter to the server.
+In your screen-wrapper component, use the useAPI hook to gain access to the ```api.sendScreenParameter``` function then you can call it whenever to send the screen-parameter to the server.
 
 ### screen.sendScreenRequest Parameters
 Parameter | Type | Description

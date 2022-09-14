@@ -6,7 +6,7 @@ import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { createSetValuesRequest, getClientId, useAPI, useDataProviderData, useDataProviders, useGetCustomProperty } from "@sibvisions/reactui";
+import { createSetValuesRequest, createSelectRowRequest, getClientId, useAPI, useDataProviderData, useDataProviders, useGetCustomProperty } from "@sibvisions/reactui";
 import { Button } from "primereact/button";
 
 /**
@@ -69,6 +69,11 @@ const CustomChartScreen: FC<any> = (props) => {
         <div style={{width: "100%", height:"100%"}}>
             <Chart type="pie" data={chartData} options={options} />
             <Button label="Update data" onClick={handleUpdate} />
+            <Button label="Delete data" onClick={() => {
+                const deleteReq = createSelectRowRequest();
+                deleteReq.dataProvider = dataProviders[0];
+                api.sendRequest(deleteReq, "delete_record");
+            }} />
         </div>
     )
 }

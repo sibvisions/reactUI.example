@@ -1,12 +1,12 @@
 import React, {FC} from "react";
-import { ScreenWrapper, useScreen } from "@sibvisions/reactui";
+import { ScreenWrapper, useAPI } from "@sibvisions/reactui";
 import MyReactComp from "./MyReactComp";
 
 const ScreenWrapperReactComp:FC<any> = (props) => {
-    const screen = useScreen(props.screenName);
+    const api = useAPI();
 
     const onOpen = () => {
-        screen.addCustomComponent("ReaComTes-303_E_reactcomptest_NAME", <MyReactComp />)
+        api.addCustomComponent("ReaComTes-303_E_reactcomptest_NAME", <MyReactComp />)
     }
 
     return (

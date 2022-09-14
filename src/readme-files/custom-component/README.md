@@ -11,10 +11,10 @@ Use custom-components if you want to add your react components, which aren't sup
 
 ## Implementation
 
-1. First you need to register a [screen-wrapper](src/readme-files/screen-wrapper) for the screen where the custom-component is placed. In the screen-wrapper create a variable which uses the ```useScreen``` hook to gain access to screen-specific functions. Pass the ```props.screenName``` property to the hook.
+1. First you need to register a [screen-wrapper](src/readme-files/screen-wrapper) for the screen where the custom-component is placed. In the screen-wrapper create a variable which uses the ```useAPI``` hook to gain access to api-functions.
 
 ```typescript
-const screen = useScreen(props.screenName);
+const api = useAPI();
 ```
 
 2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```screen.addCustomComponent``` function.
