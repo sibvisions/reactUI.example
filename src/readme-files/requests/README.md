@@ -45,7 +45,7 @@ Mostly the ComponentRequest is not used on its own, some Requests extend the Com
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 
 ### Usage
 ```typescript
@@ -148,6 +148,20 @@ identifier | string, undefined | The identifier (email) of the user to send the 
         api.sendRequest(resetReq, REQUEST_KEYWORDS.RESET_PASSWORD);
 ```
 
+## createCancelLoginRequest(values?: CancelLoginRequest)
+Returns a cancel-login-request object with either properties which can be overwritten or properties as parameters.
+
+Is used when you want to cancel a login-attempt with multi factor authentication.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createCancelLoginRequest(), REQUEST_KEYWORDS.CANCEL_LOGIN)
+```
+
 ## createPressButtonRequest(values?: PressButtonRequest)
 Returns a pressButtonRequest object with either properties which can be overwritten or properties as parameters.
 
@@ -156,7 +170,7 @@ Is used when pressing a button.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action.
+componentId | string, undefined | The name of the component which calls the action.
 
 ## Usage
 ```typescript
@@ -173,7 +187,7 @@ Is used when pressing a button.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action.
+componentId | string, undefined | The name of the component which calls the action.
 
 ### Usage
 ```typescript
@@ -220,6 +234,40 @@ parameter | { [key:string]: any } | Additional parameters sent to the server whe
     api.sendRequest(req, REQUEST_KEYWORDS.CLOSE_SCREEN);
 ```
 
+## createCloseFrameRequest(values?: CloseFrameRequest)
+Returns a close-frame-request object with either properties which can be overwritten or properties as parameters.
+
+Is used when a message or a frame is being closed.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the message/frame to close.
+
+### Usage
+```typescript
+    const closeReq = createCloseFrameRequest();
+    closeReq.componentId = props.name;
+    api.sendRequest(closeReq, REQUEST_KEYWORDS.CLOSE_FRAME);
+```
+
+## createCloseContentRequest(values?: CloseContentRequest)
+Returns a close-content-request object with either properties which can be overwritten or properties as parameters.
+
+Is used to close a content-popup.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the message/frame to close.
+
+### Usage
+```typescript
+    const closeReq = createCloseContentRequest();
+    closeReq.componentId = props.name;
+    api.sendRequest(closeReq, REQUEST_KEYWORDS.CLOSE_CONTENT);
+```
+
 ## createDeviceStatusRequest(values?: DeviceStatusRequest)
 Returns a deviceStatusRequest object with either properties which can be overwritten or properties as parameters.
 
@@ -247,7 +295,7 @@ Is used to select a row and/or column of a dataprovider.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 dataProvider | string, string[], undefined | The dataprovider you want to select the row from.
 filter | SelectFilter, undefined | A combination of columnNames (string[]) and values (any[]), so the server knows which row to select.
 selectedColumn | string, undefined | The column to select.
@@ -272,7 +320,7 @@ Is used to select nodes of a tree.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 dataProvider | string, string[], undefined | The dataproviders you want to select the row from.
 filter | SelectFilter[], undefined | An array of combinations of columnNames (string[]) and values (any[]), so the server knows which row to select.
 
@@ -353,7 +401,7 @@ Is used to set values for components **without** dataprovider.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 value | string, undefined | The value to set
 
 ### Usage
@@ -376,7 +424,7 @@ Is used to set values for components **with** dataprovider.
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 dataProvider | string, string[], undefined | The dataprovider(s) you want to get information from or change
 columnNames | string[], undefined | The columnNames of which values are to be changed
 values | any[], undefined | The values which are being set
@@ -400,7 +448,7 @@ Is used to either switch a tab on a TabsetPanel or to close a tab. To select a t
 Name | Type | Description
 --- | --- | --- |
 clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
-componentId | string, undefined | The id of the component which calls the action/is being changed.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
 index | number, undefined | The index of the tab you want to select/close
 
 ### Usage
@@ -497,4 +545,188 @@ parameter | { [key:string]: any }, undefined | The parameters which are sent to 
     parameterReq.componentId = screenName;
     parameterReq.parameter = parameter;
     api.sendRequest(parameterReq, REQUEST_KEYWORDS.SET_SCREEN_PARAMETER);
+```
+
+## createMouseRequest(values?: MouseRequest)
+Returns a mouse-request object with either properties which can be overwritten or properties as parameters.
+
+Is used for the mouse-pressed (mouse-down) and mouse-released (mouse-up) request.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
+button | "Left", "Middle", "Right", undefined | The mouse-button which was used
+x | number, undefined | The x-position where the click happened
+y | number, undefined | The y-position where the click happened
+
+### Usage
+```typescript
+    const releaseReq = createMouseRequest();
+    releaseReq.componentId = compName;
+    releaseReq.button = getMouseButton(event.button);
+    releaseReq.x = event.x;
+    releaseReq.y = event.y;
+    api.sendRequest(releaseReq, REQUEST_KEYWORDS.MOUSE_RELEASED);
+```
+
+## createMouseClickedRequest(values?: MouseClickedRequest)
+Returns a mouse-clicked-request object with either properties which can be overwritten or properties as parameters.
+
+Is used for the mouse-clicked (mouse-up) event.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
+button | "Left", "Middle", "Right", undefined | The mouse-button which was used
+x | number, undefined | The x-position where the click happened
+y | number, undefined | The y-position where the click happened
+clickCount | number, undefined | number of times the button was clicked
+
+### Usage
+```typescript
+    const clickReq = createMouseClickedRequest();
+    clickReq.componentId = compName;
+    clickReq.button = getMouseButton(event.button);
+    clickReq.x = event.x;
+    clickReq.y = event.y;
+    clickReq.clickCount = event.detail;
+    api.sendRequest(clickReq, REQUEST_KEYWORDS.MOUSE_CLICKED);
+```
+
+## createSaveRequest(values?: SaveRequest)
+Returns a save-request object with either properties which can be overwritten or properties as parameters.
+
+Is used to save the entire application.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createSaveRequest(), REQUEST_KEYWORDS.SAVE);
+```
+
+## createReloadRequest(values?: ReloadRequest)
+Returns a reload-request object with either properties which can be overwritten or properties as parameters.
+
+Is used to reload the entire application.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createReloadRequest(), REQUEST_KEYWORDS.RELOAD);
+```
+
+## createUIRefreshRequest(values?: UIRefreshRequest)
+Returns a ui-refresh-request object with either properties which can be overwritten or properties as parameters.
+
+Restarts the application at the exact state before the reload (new startup).
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createUIRefreshRequest(), REQUEST_KEYWORDS.UI_REFRESH);
+```
+
+## createRollbackRequest(values?: RollbackRequest)
+Returns a rollback-request object with either properties which can be overwritten or properties as parameters.
+
+Is used to rollback a transaction.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createRollbackRequest(), REQUEST_KEYWORDS.ROLLBACK);
+```
+
+## createChangesRequest(values?: ChangesRequest)
+Returns a changes-request object with either properties which can be overwritten or properties as parameters.
+
+When the Websocket sends a message with "changes" this changes request is being sent to receive updated content.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createChangesRequest(), REQUEST_KEYWORDS.CHANGES);
+```
+
+## createFocusGainedRequest(values?: FocusGainedRequest)
+Returns a focus-gained-request object with either properties which can be overwritten or properties as parameters.
+
+Is used when a component gains focus.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
+
+### Usage
+```typescript
+    export function onFocusGained(componentId: string, server: Server|ServerFull) {
+        const focusGainedReq = createFocusGainedRequest();
+        focusGainedReq.componentId = componentId;
+        return api.sendRequest(focusGainedReq, REQUEST_KEYWORDS.FOCUS_GAINED);
+    }
+```
+
+## createFocusLostRequest(values?: FocusLostRequest)
+Returns a focus-lost-request object with either properties which can be overwritten or properties as parameters.
+
+Is used when a component loses focus.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+componentId | string, undefined | The name of the component which calls the action/is being changed.
+
+### Usage
+```typescript
+    export function onFocusLost(componentId: string, server: Server|ServerFull) {
+        const focusGainedReq = createFocusGainedRequest();
+        focusGainedReq.componentId = componentId;
+        return api.sendRequest(focusGainedReq, REQUEST_KEYWORDS.FOCUS_LOST);
+    }
+```
+
+## createAliveRequest(values?: AliveRequest)
+Returns an alive-request object with either properties which can be overwritten or properties as parameters.
+
+Is used to tell the server that the client is still "alive" (is send automatically for you).
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createAliveRequest(), REQUEST_KEYWORDS.ALIVE);
+```
+
+## createAboutRequest(values?: AboutRequest)
+Returns an about-request object with either properties which can be overwritten or properties as parameters.
+
+Opens an about popup.
+
+Name | Type | Description
+--- | --- | --- |
+clientId | string | The clientId that is sent by the server, **doesn't have to be set it will be set automatically**.
+
+### Usage
+```typescript
+    api.sendRequest(createAboutRequest(), REQUEST_KEYWORDS.ABOUT);
 ```
