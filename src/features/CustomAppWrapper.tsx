@@ -13,7 +13,7 @@ const CustomAppWrapper: FC = ({children}) => {
         <> 
             <div className="customApp__menu">
                 <Menubar model={menuItems} />
-                <ProfileMenu />
+                <ProfileMenu designerViewCallback={() => {}} />
             </div>
             {children}
         </>

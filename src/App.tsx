@@ -23,6 +23,7 @@ import CustomBrowser from './features/CustomBrowser';
 import ScreenWrapperContacts from './features/ScreenWrapperContacts';
 import ScreenWrapperReactComp from './features/ScreenWrapperReactComp';
 import ScreenWrapperButton from './features/ScreenWrapperButton';
+import ScreenWrapperExample from './features/ScreenWrapperExample';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -46,13 +47,14 @@ const App: FC = () => {
       api.addScreenWrapper("ReaComTes-303", <ScreenWrapperReactComp />)
     }
     else if (api.getUser().userName === "features") {
+      api.addScreenWrapper("SimCon-QQ", <ScreenWrapperExample />);
       api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
       api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
       api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
-      api.addScreenWrapper("Com-K3", <ScreenWrapperButton />)
+      api.addScreenWrapper("Com-K3", <ScreenWrapperButton />);
       //api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
       //api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
-      api.addGlobalComponent("MobileBrowser", <CustomBrowser />)
+      api.addGlobalComponent("MobileBrowser", <CustomBrowser />);
     }
   }
 
