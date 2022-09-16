@@ -74,7 +74,8 @@ const api = useAPI();
 - [Send Screen-Parameter to the Server](src/readme-files/screen-parameter) - Send screen-parameter to the server.
 - [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.
 
-## Documentation
-- [Available API functions](src/readme-files/api-functions)
-- [Available hooks](src/readme-files/hooks)
-- [Available requests](src/readme-files/requests)
+## API-Documentation
+Click [here](https://github.com/sibvisions/reactUI#api-documentation) to get to the API-documentation. You can find additional information about available API-functions, hooks and requests.
+
+## Example-Screen
+[Here](src/readme-files/example-screen) you can find an example-screen, where I use customization, some API functions, 
