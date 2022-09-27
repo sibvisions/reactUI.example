@@ -2,6 +2,9 @@ import { createSetValuesRequest, REQUEST_KEYWORDS, ScreenWrapper, useAPI, useDat
 import React, { FC, useEffect, useState } from "react";
 import { InputText } from 'primereact/inputtext'
 import { Button } from "primereact/button";
+import { Rating } from 'primereact/rating';
+import { InputMask } from 'primereact/inputmask';
+import { InputNumber } from 'primereact/inputnumber';
 
 const CustomTextField:FC<any> = (props) => {
     const api = useAPI();
@@ -54,6 +57,21 @@ const ScreenWrapperExample:FC<any> = (props) => {
         <ScreenWrapper onOpen={onOpen}>
             {screen => 
                 <>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                        <Rating 
+                            cancel={false} 
+                            style={{ marginRight: "0.5rem" }} />
+                        <InputMask 
+                            mask="aa99-9999-9999-9999-9999" 
+                            placeholder="AT12-3456-7890-1234-5678" 
+                            style={{ marginRight: "0.5rem" }} />
+                        <InputNumber 
+                            showButtons 
+                            buttonLayout="horizontal" 
+                            step={50}
+                            decrementButtonClassName="p-button-danger" 
+                            incrementButtonClassName="p-button-success" />
+                    </div>
                     {screen}
                 </>
             }

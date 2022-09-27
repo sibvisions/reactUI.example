@@ -73,6 +73,7 @@ const api = useAPI();
 - [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
 - [Send Screen-Parameter to the Server](src/readme-files/screen-parameter) - Send screen-parameter to the server.
 - [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.
+- [API demonstration](src/readme-files/example-screen) - An example-screen, where I use customization, some API functions and hooks.
 
 ## API-Documentation
 Click [here](https://github.com/sibvisions/reactUI#api-documentation) to get to the API-documentation. You can find additional information about available API-functions, hooks and requests.
