@@ -82,7 +82,12 @@ Now the screen looks like this:
 
 ![custom-added-example](../readme-images/example-custom-added.PNG)
 
-## 5. Add the data-binding to our textfields and onClicks to buttons
+## 5. Adding external components into the screen-wrapper
+A screen-wrapper isn't only there to create an entrypoint to the workscreen. We can also use it to add some components next to the workscreen. I've added three components, which aren't available in the ```ReactUI```.
+
+
+
+## 6. Add the data-binding to our textfields and onClicks to buttons
 Now for the data-binding we are getting the dataproviders using the `useDataProviders(props.screenName)` hook. Then we are going to pass the dataprovider and the columnName. For the buttons we are passing the onClick function, we are calling the `api.insertRecord` and `api.deleteRecord` function.
 
 ```typescript
@@ -120,7 +125,7 @@ In the `CustomTextField` we are going to use the `useRowSelect` hook to get the 
 Now we can see at the bottom that the data is available in the textfields.
 ![data-bound](../readme-images/example-custom-data.PNG)
 
-## 6. Editing the Fields and sending the changes to the Server
+## 7. Editing the Fields and sending the changes to the Server
 Now that we have access to the data, data-changes won't be sent to the server right now. For that we need to send a `SetValuesRequest` to the server by using the `createSetValuesRequest` function.
 
 ```typescript
