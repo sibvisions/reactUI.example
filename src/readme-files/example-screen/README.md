@@ -1,5 +1,5 @@
 # Example-Screen
-In this example-screen I'm going to use some customizing, API-functions, hooks and requests to use [custom-components](../custom-component/) to modify the data of the already existing screen of my VisionX-application.
+In this example-screen I'm going to use some customizing, API-functions, hooks and requests to use [custom-components](../custom-component/) to modify the data of an already existing workscreen.
 
 ## 1. Customize the screen
 Firstly we'll have to add the [screen-wrapper](../screen-wrapper) to the application, so there is an entrypoint to the workscreen, so it can be customized. In the onLogin function I'm going to add the screen-wrapper to the following screen, but only when the user "features" is logged in. The onLogin function has to be passed to the `<ReactUI />` component to work.
@@ -9,6 +9,10 @@ Firstly we'll have to add the [screen-wrapper](../screen-wrapper) to the applica
             api.addScreenWrapper("SimCon-QQ", <ScreenWrapperExample />);
         }
     }
+    
+    return (
+        <ReactUI onLogin={onLogin} />
+    )
 ```
 
 ## 2. Creating the Screen-Wrapper
