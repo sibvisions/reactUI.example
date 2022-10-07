@@ -75,8 +75,5 @@ const api = useAPI();
 - [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.
 - [API demonstration](src/readme-files/example-screen) - An example-screen, where I use customization, some API functions and hooks.
 
-## API-Documentation
-Click [here](https://github.com/sibvisions/reactUI#api-documentation) to get to the API-documentation. You can find additional information about available API-functions, hooks and requests.
-
 ## Example-Screen
 [Here](src/readme-files/example-screen) you can find an example-screen, where I use customization, some API functions, 
