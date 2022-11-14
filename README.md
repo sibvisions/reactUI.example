@@ -36,6 +36,8 @@ If you don't enter the required properties in the URL, it is also possible to ad
 }
 ```
 
+Note that the `baseUrl` property is **NOT** your browser URL, it is the URL to connect to VisionX
+
 ### Properties for the ReactUI Component
 Name | Type | Description
 --- | --- | --- |
