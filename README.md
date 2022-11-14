@@ -7,7 +7,7 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 ### With npm link
 - run `npm link` in your reactUI directory
 - run `npm link @sibvisions/reactui` in your reactUI.example directory
-- run `npm link ../reactUI/node_modules/react` in your reactUI.example directory to prevent react collision errors
+- run `npm link ../reactUIExample/node_modules/react` in your reactUI directory to prevent react collision errors
 - if you run `npm install`, you have to repeat step 2 and 3!
 - if you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
 
