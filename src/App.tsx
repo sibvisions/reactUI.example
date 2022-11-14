@@ -24,6 +24,7 @@ import ScreenWrapperContacts from './features/ScreenWrapperContacts';
 import ScreenWrapperReactComp from './features/ScreenWrapperReactComp';
 import ScreenWrapperButton from './features/ScreenWrapperButton';
 import ScreenWrapperExample from './features/ScreenWrapperExample';
+import ScreenWrapperSecond from './features/ScreenWrapperSecond';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -51,6 +52,7 @@ const App: FC = () => {
       api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
       api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
       api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
+      api.addScreenWrapper("Sec-BL", <ScreenWrapperSecond />)
       api.addScreenWrapper("Com-K3", <ScreenWrapperButton />);
       //api.addScreenWrapper("Mou-SI", <ScreenWrapperMouse/>);
       //api.addScreenWrapper("Cho-IM", <ScreenWrapperChoice/>);
@@ -90,7 +92,7 @@ const App: FC = () => {
         newIcon: "fa-bookmark"
       });
 
-      api.removeMenuItem("com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen");
+      //api.removeMenuItem("com.sibvisions.apps.mobile.demo.screens.features.SecondWorkScreen");
 
       api.addToolbarItem({
         id: "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen",
@@ -108,7 +110,6 @@ const App: FC = () => {
       api.removeToolbarItem("com.sibvisions.apps.mobile.demo.screens.features.MouseWorkScreen");
     }
   }
-
 
   /** Return the ReactUI and pass your custom-content arrays as properties */
   return (

@@ -1,6 +1,6 @@
 /** React imports */
 import React, {FC} from "react";
-import { useMenuItems, ProfileMenu } from "@sibvisions/reactui";
+import { useMenuItems, ProfileMenu } from "@sibvisions/reactui/dist";
 import { Menubar } from "primereact/menubar";
 
 /** scss import */
@@ -13,7 +13,7 @@ const CustomAppWrapper: FC = ({children}) => {
         <> 
             <div className="customApp__menu">
                 <Menubar model={menuItems} />
-                <ProfileMenu designerViewCallback={() => {}} />
+                <ProfileMenu />
             </div>
             {children}
         </>

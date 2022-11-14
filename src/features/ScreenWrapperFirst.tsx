@@ -35,7 +35,7 @@ const ScreenWrapperFirst:FC<any> = (props) => {
     const onOpen = () => {
         api.sendScreenParameter(props.screenName, {abc: "def", test: 789, xyz: true })
         api.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
-        api.removeComponent("Fir-N7_B_DOOPEN");
+        //api.removeComponent("Fir-N7_B_DOOPEN");
         console.log(api.getUser())
     }
 
