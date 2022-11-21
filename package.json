@@ -1,10 +1,10 @@
 {
-  "name": "reactUIExample",
+  "name": "reactui-example",
   "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@sibvisions/reactui": "^1.0.43",
+    "@sibvisions/reactui": "^1.0.46",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -28,6 +28,8 @@
     "typescript": "^3.7.5"
   },
   "scripts": {
+    "init-unix": "cp -R node_modules/@sibvisions/reactui/resources public",
+    "init-win": "Xcopy /E /I .\\node_modules\\@sibvisions\\reactui\\resources .\\public",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

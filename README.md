@@ -4,16 +4,18 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 
 ## Dev Setup
 
-### With npm link
-- run `npm link` in your reactUI directory
-- run `npm link @sibvisions/reactui` in your reactUI.example directory
-- run `npm link ../reactUIExample/node_modules/react` in your reactUI directory to prevent react collision errors
-- if you run `npm install`, you have to repeat step 2 and 3!
-- if you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
-
 ### With npm install
 - If you are using create-react-app make sure to downgrade react to v17.0.x (https://stackoverflow.com/a/71908461)
-- run `npm install @sibvisions/reactui` to install the reactUI as dependency
+- Run `npm install @sibvisions/reactui` to install the reactUI as dependency
+- In your `package.json` file, create a "init" command which copies files from reactui's resource folder to your projects public folder. `Xcopy /E /I .\\node_modules\\@sibvisions\\reactui\\resources .\\public` for windows. `cp -R node_modules/@sibvisions/reactui/resources public` for unix. (This is necessary for themes and color-schemes and other resources)
+- Run your init command with `npm run init`
+
+### Advanced Setup (with npm link)
+- Run `npm link` in your reactUI directory
+- Run `npm link @sibvisions/reactui` in your reactUI.example directory
+- Run `npm link ../reactUIExample/node_modules/react` in your reactUI directory to prevent react collision errors
+- If you run `npm install`, you have to repeat step 2 and 3!
+- If you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
 
 ## Getting Started
 Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
