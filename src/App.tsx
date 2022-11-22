@@ -44,13 +44,13 @@ const App: FC = () => {
     //api.addScreenWrapper("global", <GlobalScreenWrapper/>);
     if (api.getUser().userName === "admin") {
       api.addCustomScreen("LiveCounter", <CustomCounter />);
-      api.addScreenWrapper("Con-CG", <ScreenWrapperContacts />);
       api.addScreenWrapper("ReaComTes-303", <ScreenWrapperReactComp />)
     }
     else if (api.getUser().userName === "features") {
       api.addScreenWrapper("SimCon-QQ", <ScreenWrapperExample />);
       api.addCustomScreen("ProjectImages", <CustomProjectScreen />);
       api.addReplaceScreen("Cha-OL", <CustomChartScreen />);
+      api.addScreenWrapper("Con-CG", <ScreenWrapperContacts />);
       api.addScreenWrapper("Fir-N7", <ScreenWrapperFirst/>, { global: false });
       api.addScreenWrapper("Sec-BL", <ScreenWrapperSecond />)
       api.addScreenWrapper("Com-K3", <ScreenWrapperButton />);
