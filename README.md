@@ -7,7 +7,16 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 ### With npm install
 - If you are using create-react-app make sure to downgrade react to v17.0.x (https://stackoverflow.com/a/71908461)
 - Run `npm install @sibvisions/reactui` to install the reactUI as dependency
-- In your `package.json` file, create a "init" command which copies files from reactui's resource folder to your projects public folder. `Xcopy /E /I .\\node_modules\\@sibvisions\\reactui\\resources .\\public` for windows. `cp -R node_modules/@sibvisions/reactui/resources public` for unix. (This is necessary for themes and color-schemes and other resources)
+- Run `npm install @sibvisions/reactui` to install the reactUI as dependency
+- In your `package.json` file, create a "init" command which copies files from reactui's resource folder to your projects public folder. 
+```
+  "scripts": {
+    "init-unix": "cp -R node_modules/@sibvisions/reactui/resources public",
+    "init-win": "Xcopy /E /I .\\node_modules\\@sibvisions\\reactui\\resources .\\public",
+    "start": "react-scripts start", ...
+  }
+``` 
+(This is necessary for themes and color-schemes and other resources)
 - Run your init command with `npm run init`
 
 ### Advanced Setup (with npm link)
