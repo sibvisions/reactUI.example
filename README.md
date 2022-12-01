@@ -47,7 +47,7 @@ If you don't enter the required properties in the URL, it is also possible to ad
 }
 ```
 
-Note that the `baseUrl` property is **NOT** your browser URL, it is the URL to connect to VisionX Server.
+Note that the `baseUrl` property is **NOT** your browser URL, it is the URL to connect to application Server.
 
 ### Properties for the ReactUI Component
 Name | Type | Description
@@ -77,8 +77,8 @@ onOpenScreen | Funtion | a function which will be called when a screen is opened
 const api = useAPI();
 ```
 
-- [Custom-Screens](src/readme-files/custom-screen) - add your react code as screens to your VisionX application.
-- [Replace-Screens](src/readme-files/replace-screen) - replace an already existing screen of your VisionX application with your own screen and reuse use its data.
+- [Custom-Screens](src/readme-files/custom-screen) - add your react code as screens to your application.
+- [Replace-Screens](src/readme-files/replace-screen) - replace an already existing screen of your application with your own screen and reuse use its data.
 - [Custom-Components](src/readme-files/custom-component) - replace already existing components of a screen with your custom created components or remove an existing component from a screen.
 - [Extend-Components](src/readme-files/extend-components) - extend existent components events with your own functions.
 - [Custom-Startup-Properties](src/readme-files/custom-startup-props) - Send custom-startup-properties from your WebApp to the server.
