@@ -26,8 +26,7 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 - If you run `npm install`, you have to repeat step 2 and 3!
 - If you run into issues, where it says that reactUI can't be found, run ```npm run bundle``` or ```npm run devbundle```, depending on whether you want to use production or development environmental variables, in your reactUI directory to create the dist directory where the example will receive the components, functions etc.
 
-## Getting Started
-Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
+If you run `npm run devbundle`, the reactUI will run in "development" mode so it is possible to add a `config.json` file, which contains parameters which would normally be added in the url.
 
 ### config.json
 If you don't enter the required properties in the URL, it is also possible to add a config.json file into your public directory:
@@ -49,6 +48,9 @@ If you don't enter the required properties in the URL, it is also possible to ad
 
 Note that the `baseUrl` property is **NOT** your browser URL, it is the URL to connect to application Server.
 
+## Getting Started
+Import the "ReactUI" Component from the reactUI library, in your main file (e.g. App.tsx) render the component and pass properties as you wish.
+
 ### Properties for the ReactUI Component
 Name | Type | Description
 --- | --- | --- |
@@ -69,6 +71,8 @@ onOpenScreen | Funtion | a function which will be called when a screen is opened
       />
   );
 ```
+
+Run `npm start` to run your project. Here is an example URL you can use to see the demo. (JVx.mobile server required): http://localhost:3000/?language=en&appName=demo&baseUrl=http://localhost:8080/JVx.mobile/services/mobile#
 
 ## Features
 
