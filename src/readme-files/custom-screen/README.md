@@ -5,7 +5,7 @@ Custom-screens are a way to add your own react-coded screens, which aren't avaia
 Use custom-screens if you want to add screens to your web application, which are react only and don't need to work with the java applications server.
 
 ## Implementation
-1. In your main class (e.g. App.tsx) call the ```api.addCustomScreen``` function, in a function which will then be passed prefereably as ```onLogin``` to your ```ReactUI``` component, onStartup is also possible, but onLogin is preferred so you can check which user should receive the custom-screen.
+1. In your main class (e.g. App.tsx) call the ```api.addCustomScreen``` function, in a function which will then be passed preferably as ```onLogin``` to your ```ReactUI``` component, onStartup is also possible, but onLogin is preferred so you can check which user should receive the custom-screen.
 
 ### api.addCustomScreen Parameters
 Parameter | Type | Description

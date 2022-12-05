@@ -1,0 +1,113 @@
+.custom-login-form, .custom-reset-wrapper {
+    border-radius: 4px;
+    background: rgb(205, 238, 195);
+    padding: 2rem;
+    width: 300px;
+}
+
+.custom-login-button {
+    background: #256a26;
+    border-color: #256a26;
+
+    &:enabled:hover {
+        background: #1d581e;
+        border-color: #1d581e;
+    }
+}
+
+.p-dropdown-panel {
+    z-index: 1004 !important;
+}
+
+.p-dropdown-label.p-inputtext:not(.designer-panel-inputtext):not(.style-editor-textinput) {
+    border: none;
+    padding-left: 2rem;
+
+    &.p-placeholder {
+        color: var(--input-placeholder-color);
+    }
+}
+
+.login-button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    .p-button {
+        width: 100px;
+    }
+}
+
+.p-fluid .p-button {
+    width: unset;
+}
+
+.login-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.p-checkbox-label {
+    margin-left: 0.25rem;
+}
+
+.department-icon {
+    z-index: 1;
+}
+
+.login-reset-row {
+    display: flex;
+    justify-content: flex-end;
+
+    .p-button-link {
+        width: 100px;
+        font-size: 12px;
+        padding: 0;
+        color: #6c757d;
+        &:enabled:hover {
+            color: #6c757d;
+        }
+    }
+}
+
+.custom-login-wrapper {
+    display: flex;
+    height: 300px;
+
+    .login-image {
+        height: 100%;
+        width: 300px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.custom-reset-wrapper {
+    .custom-reset-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .custom-reset-lock {
+            display: block;
+            font-size: 72px;
+            margin-bottom: 1rem;
+        }
+
+        .custom-reset-header-text {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    }
+
+    .reset-password-button-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+

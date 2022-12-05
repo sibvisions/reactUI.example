@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI, useAPI } from '@sibvisions/reactui';
+import { ReactUI, useAPI } from "@sibvisions/reactui";
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -25,6 +25,7 @@ import ScreenWrapperReactComp from './features/ScreenWrapperReactComp';
 import ScreenWrapperButton from './features/ScreenWrapperButton';
 import ScreenWrapperExample from './features/ScreenWrapperExample';
 import ScreenWrapperSecond from './features/ScreenWrapperSecond';
+import CustomLoginView from './features/CustomLoginView';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -38,6 +39,7 @@ const App: FC = () => {
 
   const onStartup = () => {
     api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
+    api.addCustomLogin((props) => <CustomLoginView {...props} />, true, true)
   }
 
   const onLogin = () => {
