@@ -26,6 +26,7 @@ import ScreenWrapperButton from './features/ScreenWrapperButton';
 import ScreenWrapperExample from './features/ScreenWrapperExample';
 import ScreenWrapperSecond from './features/ScreenWrapperSecond';
 import CustomLoginView from './features/CustomLoginView';
+import CustomResetView from './features/CustomResetView';
 
 /** 
  * To use ReactUI import it and return it in your "main" component like App.
@@ -39,7 +40,7 @@ const App: FC = () => {
 
   const onStartup = () => {
     api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
-    api.addCustomLogin((props) => <CustomLoginView {...props} />, true, true)
+    api.addCustomLogin((props) => <CustomLoginView {...props} />, (props) => <CustomResetView {...props} />)
   }
 
   const onLogin = () => {
