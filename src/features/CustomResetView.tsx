@@ -1,4 +1,4 @@
-import { ICustomResetLogin } from "@sibvisions/reactui";;
+import { ICustomResetLogin } from "@sibvisions/reactui";
 import { Button } from "primereact/button";
 import { Dropdown, DropdownChangeParams } from "primereact/dropdown"
 import { InputText } from "primereact/inputtext"
