@@ -6,7 +6,7 @@ import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { createSetValuesRequest, createSelectRowRequest, getClientId, useAPI, useDataProviderData, useDataProviders, useGetCustomProperty } from "@sibvisions/reactui";
+import { createSetValuesRequest, createSelectRowRequest, getClientId, useAPI, useDataProviderData, useDataProviders } from "@sibvisions/reactui";
 import { Button } from "primereact/button";
 
 /**
@@ -27,7 +27,7 @@ const CustomChartScreen: FC<any> = (props) => {
     }[]] = useDataProviderData(props.screenName, dataProviders[0]);
 
     /** Gets a custom statup property */
-    const customProp1 = useGetCustomProperty('privkey');
+    const customProp1 = api.getApplicationParameter('privkey');
 
     /** Building the chart based on dataprovider data */
     const chartData = useMemo(() => {
