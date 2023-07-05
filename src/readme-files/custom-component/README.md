@@ -17,9 +17,9 @@ Use custom-components if you want to add your react components, which aren't sup
 const api = useAPI();
 ```
 
-2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```screen.addCustomComponent``` function.
+2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```api.addCustomComponent``` function.
 
-### screen.addCustomComponent Parameters
+### api.addCustomComponent Parameters
 Parameter | Type | Description
 --- | --- | --- |
 id | string | ID of the component you want to replace, can be found in VisionX.
@@ -27,7 +27,7 @@ component | ReactElement | The custom component which should be added.
 
 ```typescript
     const onOpen = () => {
-        screen.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
+        api.addCustomComponent("Fir-N7_B_DOOPEN", <CustomCounter />)
     }
 ```
 
@@ -51,16 +51,16 @@ Removes a component from a workscreen. The layout will be adjusted to the remove
 
 1. The same as step 1 of adding custom-components above.
 
-2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```screen.removeComponent``` function.
+2. Define a function which will be passed as ```onOpen``` property to the screen-wrapper. In the function call the ```api.removeComponent``` function.
 
-### screen.addCustomComponent Parameters
+### api.removeComponent Parameters
 Parameter | Type | Description
 --- | --- | --- |
 id | string | ID of the component you want to remove, can be found in VisionX.
 
 ```typescript
     const onOpen = () => {
-        screen.removeComponent("Fir-N7_B_DOOPEN");
+        api.removeComponent("Fir-N7_B_DOOPEN");
     }
 ```
 

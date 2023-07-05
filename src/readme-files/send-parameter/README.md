@@ -39,9 +39,10 @@ Here I've added the ```api.sendOpenScreenRequest``` to the ```onClick``` event o
 ### 2. Sending parameters during closeScreen
 1. In a screen-wrapper you are able to call the function ```api.sendCloseScreenRequest``` which will close a screen and send screen-parameters.
 
-### screen.sendCloseScreenRequest Parameters
+### api.sendCloseScreenRequest Parameters
 Parameter | Type | Description
 --- | --- | --- |
+screenName | string | the component id of the screen
 parameter | { [key: string]: any } | The parameters to be sent.
 
 ### Example sending screen-parameter during closeScreen
@@ -62,17 +63,18 @@ Here I've added the ```api.sendCloseScreenRequest``` to the ```onClick``` event 
 ### 3. Send Screen-Parameter in Screen-Wrapper
 In your screen-wrapper component, use the useAPI hook to gain access to the ```api.sendScreenParameter``` function then you can call it whenever to send the screen-parameter to the server.
 
-### screen.sendScreenRequest Parameters
+### api.sendScreenParameter Parameters
 Parameter | Type | Description
 --- | --- | --- |
+screenName | string | the component id of the screen
 parameter | { [key: string]: any } | The parameters to be sent.
 
 ### Example sending screen-parameter
-Here I've added the ```screen.sendScreenRequest``` to the ```onClick``` event of a button. So when I'm clicking the button, parameter will be sent.
+Here I've added the ```api.sendScreenParameter``` to the ```onClick``` event of a button. So when I'm clicking the button, parameter will be sent.
 
 ```typescript
   <Button 
-    onClick={() => screen.sendScreenParameter( { testParam: 'test' })}
+    onClick={() => api.sendScreenParameter( { testParam: 'test' })}
     style={{marginLeft: '5px'}}>
     Click to send Screen-Parameter!
   </Button>
@@ -80,3 +82,28 @@ Here I've added the ```screen.sendScreenRequest``` to the ```onClick``` event of
 
 ![close-screen-parameter](../readme-images/sp-send-button.PNG)
 ![close-screen-parameter-console](../readme-images/sp-sent-sp.PNG)
+
+# Sending Parameter
+## Overview
+Similarly to screen-parameters it is possible to send parameters to the server independent of a screen.
+
+## Implementation
+In your [screen-wrapper](src/readme-files/screen-wrapper) component, use the useAPI hook to gain access to the ```api.sendParameter``` function then you can call it whenever to send the parameter to the server.
+
+### api.sendParameter Parameters
+Parameter | Type | Description
+--- | --- | --- |
+parameter | { [key: string]: any } | The parameters to be sent.
+
+### Example sending parameter
+Here I've added the ```api.sendParameter``` to the ```onClick``` event of a button. So when I'm clicking the button, parameter will be sent.
+
+```typescript
+  <Button 
+    onClick={() => api.sendParameter( { testParam: 'test' })}
+    style={{marginLeft: '5px'}}>
+    Click to send Parameter!
+  </Button>
+```
+
+![sendParameter](../readme-images/sendParameter.PNG)

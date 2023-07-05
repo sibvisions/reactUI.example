@@ -78,6 +78,11 @@ const ScreenWrapperFirst:FC<any> = (props) => {
                             Click to send Screen-Parameter!
                         </Button>
                         <Button 
+                            onClick={() => api.sendParameter({ testParam: 'test' })}
+                            style={{marginLeft: '5px'}}>
+                            Click to send Parameter!
+                        </Button>
+                        <Button 
                             onClick={() => api.sendOpenScreenRequest(
                                 "com.sibvisions.apps.mobile.demo.screens.features.PopupExampleWorkScreen", 
                                 { testParam: 'test', hello: 'world' })}
