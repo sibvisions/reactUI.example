@@ -80,17 +80,17 @@ Run `npm start` to run your project. Here is an example URL you can use to see t
 const api = useAPI();
 ```
 
-- [Custom-Screens](src/readme-files/custom-screen) - add your react code as screens to your application.
-- [Replace-Screens](src/readme-files/replace-screen) - replace an already existing screen of your application with your own screen and reuse use its data.
-- [Custom-Components](src/readme-files/custom-component) - replace already existing components of a screen with your custom created components or remove an existing component from a screen.
-- [Custom-Login](src/readme-files/custom-login) - replace the default login-views with your own login component.
-- [Extend-Components](src/readme-files/extend-components) - extend existent components events with your own functions.
-- [Custom-Startup-Properties](src/readme-files/custom-startup-props) - Send custom-startup-properties from your WebApp to the server.
-- [Screen-Wrapper](src/readme-files/screen-wrapper) - Wrap your workscreen with customized JSX. By screen(s) or global.
-- [Custom-Application-Frame](src/readme-files/custom-app-frame) - Build your custom application frame to replace the default frame.
-- [Send Extra-Parameter to the Server](src/readme-files/send-parameter) - Send (screen-)parameter to the server.
-- [Edit/Remove Menu-Items](src/readme-files/edited-menu) - Edit or remove menu-items sent by the server.
-- [API demonstration](src/readme-files/example-screen) - An example for screen customization and usage of API functions and hooks.
+- [Custom-Screens](https://github.com/sibvisions/reactUI.example/wiki/Custom-Screens) - add your react code as screens to your application.
+- [Replace-Screens](https://github.com/sibvisions/reactUI.example/wiki/Replace-Screens) - replace an already existing screen of your application with your own screen and reuse use its data.
+- [Custom-Components](https://github.com/sibvisions/reactUI.example/wiki/Custom-Components) - replace already existing components of a screen with your custom created components or remove an existing component from a screen.
+- [Custom-Login](https://github.com/sibvisions/reactUI.example/wiki/Custom-Login) - replace the default login-views with your own login component.
+- [Extend-Components](https://github.com/sibvisions/reactUI.example/wiki/Extending-Components) - extend existent components events with your own functions.
+- [Custom-Startup-Properties](https://github.com/sibvisions/reactUI.example/wiki/Custom-Startup-Properties) - Send custom-startup-properties from your WebApp to the server.
+- [Screen-Wrapper](https://github.com/sibvisions/reactUI.example/wiki/Screen-Wrappers) - Wrap your workscreen with customized JSX. By screen(s) or global.
+- [Custom-Application-Frame](https://github.com/sibvisions/reactUI.example/wiki/Custom-Application-Frames) - Build your custom application frame to replace the default frame.
+- [Send Extra-Parameter to the Server](https://github.com/sibvisions/reactUI.example/wiki/Screen-Parameter) - Send (screen-)parameter to the server.
+- [Edit/Remove Menu-Items](https://github.com/sibvisions/reactUI.example/wiki/Editing-the-Menu) - Edit or remove menu-items sent by the server.
+- [API demonstration](https://github.com/sibvisions/reactUI.example/wiki/API-Demonstration) - An example for screen customization and usage of API functions and hooks.
 
 ## API-Documentation
-Click [here](https://github.com/sibvisions/reactUI#api-documentation) to get to the API-documentation. You can find additional information about available API-functions, hooks and requests.
+Click [here](https://github.com/sibvisions/reactUI/wiki) to get to the API-documentation. You can find additional information about available API-functions, hooks and requests.
