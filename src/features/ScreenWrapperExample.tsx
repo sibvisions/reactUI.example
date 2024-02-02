@@ -1,4 +1,4 @@
-import { createSetValuesRequest, REQUEST_KEYWORDS, ScreenWrapper, useAPI, useDataProviders, useRowSelect } from "@sibvisions/reactui";
+import { createSetValuesRequest, REQUEST_KEYWORDS, ScreenWrapper, useAPI, useDataProviders, useRowSelect } from "@sibvisions/reactui/dist";
 import React, { FC, useEffect, useState } from "react";
 import { InputText } from 'primereact/inputtext'
 import { Button } from "primereact/button";
@@ -86,7 +86,7 @@ const ScreenWrapperExample:FC<any> = (props) => {
                             style={{ marginRight: "0.5rem" }} />
                         <InputMask 
                             value={iban}
-                            onChange={(e) => setIban(e.value)}
+                            onChange={(e) => setIban(e.value !== undefined && e.value !== null ? e.value : "")}
                             onBlur={() => {
                                 const setValuesReq = createSetValuesRequest();
                                 setValuesReq.columnNames = ["IBAN"];

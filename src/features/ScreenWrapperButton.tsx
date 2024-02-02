@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { useAPI, ScreenWrapper, UIToggleButton } from "@sibvisions/reactui"
+import { useAPI, ScreenWrapper, UIToggleButton } from "@sibvisions/reactui/dist"
 
 const ScreenWrapperButton: FC<any> = () => {
     const [text1, setText1] = useState("togglebutton not pressed")

@@ -6,7 +6,7 @@ import "./CustomChartScreen.scss"
 
 /** 3rd Party imports */
 import { Chart } from 'primereact/chart';
-import { createSetValuesRequest, createSelectRowRequest, getClientId, useAPI, useDataProviderData, useDataProviders } from "@sibvisions/reactui";
+import { createSetValuesRequest, createSelectRowRequest, getClientId, useAPI, useDataProviderData, useDataProviders } from "@sibvisions/reactui/dist";
 import { Button } from "primereact/button";
 
 /**

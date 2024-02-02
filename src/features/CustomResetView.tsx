@@ -1,6 +1,6 @@
-import { ICustomResetLogin } from "@sibvisions/reactui";
+import { ICustomResetLogin } from "@sibvisions/reactui/dist";
 import { Button } from "primereact/button";
-import { Dropdown, DropdownChangeParams } from "primereact/dropdown"
+import { Dropdown, DropdownChangeEvent } from "primereact/dropdown"
 import { InputText } from "primereact/inputtext"
 import React, { FC, FormEvent, useState } from "react"
 
@@ -25,7 +25,7 @@ const CustomResetView: FC<ICustomResetLogin> = (props) => {
     const [selectedDepartment, setSelectedDepartment] = useState<{ name: string, code: string }|undefined>(undefined);
 
     /** Handles the department-selection */
-    const handleDepartments = (e: DropdownChangeParams) => {
+    const handleDepartments = (e: DropdownChangeEvent) => {
         if (!e.value.name) {
             setSelectedDepartment(undefined)
         }
@@ -55,6 +55,7 @@ const CustomResetView: FC<ICustomResetLogin> = (props) => {
                         <i className="pi pi-user" />
                         <InputText
                             value={email}
+                            className="login-inputtext"
                             id="email"
                             type="text"
                             autoComplete="email"

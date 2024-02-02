@@ -1,7 +1,7 @@
-import { ICustomDefaultLogin } from "@sibvisions/reactui";
+import { ICustomDefaultLogin } from "@sibvisions/reactui/dist";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import { Dropdown, DropdownChangeParams } from "primereact/dropdown";
+import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
 import { Checkbox } from "primereact/checkbox";
 import React, { FC, FormEvent, useState } from "react";
 import vienna from '../assets/vienna.jpg'
@@ -43,7 +43,7 @@ const CustomLoginView: FC<ICustomDefaultLogin> = (props) => {
     }
 
     /** Handles the department-selection */
-    const handleDepartments = (e: DropdownChangeParams) => {
+    const handleDepartments = (e: DropdownChangeEvent) => {
         if (!e.value.name) {
             setSelectedDepartment(undefined)
         }
@@ -60,6 +60,7 @@ const CustomLoginView: FC<ICustomDefaultLogin> = (props) => {
                         <i className="pi pi-user" />
                         <InputText
                             value={username}
+                            className="login-inputtext"
                             id="username"
                             type="text"
                             autoComplete="username"
@@ -70,6 +71,7 @@ const CustomLoginView: FC<ICustomDefaultLogin> = (props) => {
                         <i className="pi pi-key" />
                         <InputText
                             value={password}
+                            className="login-inputtext"
                             id="password"
                             type="password"
                             autoComplete="current-password"
@@ -82,7 +84,7 @@ const CustomLoginView: FC<ICustomDefaultLogin> = (props) => {
                     </div>
                     <div className="login-button-row">
                         <div className="login-checkbox-wrapper" style={{}}>
-                            <Checkbox inputId="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.checked)} />
+                            <Checkbox inputId="rememberMe" checked={rememberMe} onChange={(e) => setRememberMe(e.checked === undefined ? false : e.checked)} />
                             <label htmlFor="rememberMe" className="p-checkbox-label">Remember me</label>
                         </div>
                         <Button

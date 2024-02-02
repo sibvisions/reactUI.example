@@ -1,4 +1,4 @@
-import { ScreenWrapper, useAPI } from "@sibvisions/reactui";
+import { ScreenWrapper, useAPI } from "@sibvisions/reactui/dist";
 import React, { FC } from "react";
 import CustomCounter from "./CustomCounter";
 

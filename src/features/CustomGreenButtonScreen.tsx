@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScreenWrapper } from "@sibvisions/reactui";
+import { ScreenWrapper } from "@sibvisions/reactui/dist";
 
 
 import './CustomGreenButtonScreen.scss';

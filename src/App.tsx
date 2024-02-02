@@ -11,7 +11,7 @@ import CustomGreenButtonScreen from './features/CustomGreenButtonScreen';
 import CustomAppWrapper from './features/CustomAppWrapper';
 
 /** ReactUI imports */
-import { ReactUI, useAPI } from "@sibvisions/reactui";
+import { ReactUI, useAPI } from "@sibvisions/reactui/dist";
 
 /** 3rd Party imports */
 //import 'primereact/resources/themes/saga-blue/theme.css';
@@ -35,12 +35,11 @@ import CustomResetView from './features/CustomResetView';
  * and pass them as props to the ReactUI component.
  */
 const App: FC = () => {
-
   const api = useAPI();
 
   const onStartup = () => {
     api.addStartupProperties([{ "test.parameter": true }, { test2: 'value2' }]);
-    api.addCustomLogin((props) => <CustomLoginView {...props} />, (props) => <CustomResetView {...props} />)
+    api.addCustomLogin((props:any) => <CustomLoginView {...props} />, (props:any) => <CustomResetView {...props} />)
   }
 
   const onLogin = () => {

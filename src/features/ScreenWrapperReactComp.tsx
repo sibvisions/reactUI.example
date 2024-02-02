@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import { ScreenWrapper, useAPI } from "@sibvisions/reactui";
+import { ScreenWrapper, useAPI } from "@sibvisions/reactui/dist";
 import MyReactComp from "./MyReactComp";
 
 const ScreenWrapperReactComp:FC<any> = (props) => {

@@ -5,7 +5,7 @@ import React, {FC} from "react";
 import './ScreenWrapperFirst.scss'
 
 /** ReactUI imports */
-import { ScreenWrapper, useAPI } from "@sibvisions/reactui";
+import { ScreenWrapper, useAPI } from "@sibvisions/reactui/dist";
 
 /** 3rd Party imports */
 import { Chip } from 'primereact/chip';
