@@ -6,7 +6,7 @@ const ScreenWrapperReactComp:FC<any> = (props) => {
     const api = useAPI();
 
     const onOpen = () => {
-        api.addCustomComponent("ReaComTes-303_E_reactcomptest_NAME", <MyReactComp />)
+        api.addCustomComponent(props.screenName, "ReaComTes-303_E_reactcomptest_NAME", <MyReactComp />)
     }
 
     return (
