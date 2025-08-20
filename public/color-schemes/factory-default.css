@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-:root {
+ :root {
   --primary-color:#2196F3;
   --frame-hover-backgrounds:#62666a;
   --checkbox-radio-selected-hover-background:#0d8aee;
@@ -344,7 +344,7 @@ body {
 .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon, .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text {
   color: var(--std-menu-item-hover-text-color);
 }
-.p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link .p-menuitem-text, .p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link .p-menuitem-icon, .p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text, .p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link:not(.p-disabled):hover .p-menuitem-icon {
+.p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link .p-menuitem-text, .p-panelmenu .p-panelmenu-content .p-menuitem.p-menuitem--active .p-menuitem-link .p-menuitem-icon {
   color: var(--std-menu-activeitem-color);
 }
 
@@ -450,48 +450,44 @@ body {
   border: var(--radiobutton-border);
 }
 
-.rc-editor-checkbox .p-checkbox:not(.p-checkbox-disabled):hover .p-checkbox-box,
-.rc-checkbox .p-checkbox:not(.p-checkbox-disabled):hover .p-checkbox-box {
+.rc-editor-checkbox .p-checkbox:hover:not(.p-disabled) .p-checkbox-box, .rc-checkbox .p-checkbox:hover:not(.p-disabled) .p-checkbox-box {
   border-color: var(--checkbox-border-hover-color);
 }
-.rc-editor-checkbox .p-checkbox:not(.p-checkbox-disabled).p-focus .p-checkbox-box,
-.rc-checkbox .p-checkbox:not(.p-checkbox-disabled).p-focus .p-checkbox-box {
+.rc-editor-checkbox .p-checkbox.p-focus:not(.p-disabled) .p-checkbox-box, .rc-checkbox .p-checkbox.p-focus:not(.p-disabled) .p-checkbox-box {
   box-shadow: var(--focus-box-shadow);
   border-color: var(--checkbox-selected-background);
 }
-.rc-editor-checkbox .p-checkbox:not(.p-checkbox-disabled).p-highlight:hover .p-checkbox-box,
-.rc-checkbox .p-checkbox:not(.p-checkbox-disabled).p-highlight:hover .p-checkbox-box {
+.rc-editor-checkbox .p-checkbox.p-highlight:hover:not(.p-disabled) .p-checkbox-box, .rc-checkbox .p-checkbox.p-highlight:hover:not(.p-disabled) .p-checkbox-box {
   background: var(--checkbox-selected-hover-background);
   border-color: var(--checkbox-selected-hover-background);
 }
-.rc-editor-checkbox .p-checkbox .p-checkbox-box,
-.rc-checkbox .p-checkbox .p-checkbox-box {
+.rc-editor-checkbox .p-checkbox .p-checkbox-box, .rc-checkbox .p-checkbox .p-checkbox-box {
   border-radius: var(--checkbox-border-radius);
 }
-.rc-editor-checkbox .p-checkbox.p-highlight .p-checkbox-box,
-.rc-checkbox .p-checkbox.p-highlight .p-checkbox-box {
+.rc-editor-checkbox .p-checkbox.p-highlight .p-checkbox-box, .rc-checkbox .p-checkbox.p-highlight .p-checkbox-box {
   background: var(--checkbox-selected-background);
   border-color: var(--checkbox-selected-background);
 }
-.rc-editor-checkbox .p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon,
-.rc-checkbox .p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon {
+
+.rc-editor-checkbox .p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon, .rc-checkbox .p-checkbox.p-highlight .p-checkbox-box .p-checkbox-icon {
   color: var(--checkbox-color);
 }
 
-.p-radiobutton:not(.p-disabled) .p-radiobutton-box .p-focus {
+.p-radiobutton.p-focus:not(.p-disabled) .p-radiobutton-box {
   box-shadow: var(--focus-box-shadow);
 }
-.p-radiobutton:not(.p-disabled):not(.p-highlight):hover .p-radiobutton-box {
+.p-radiobutton:hover:not(.p-highlight):not(.p-disabled) .p-radiobutton-box {
   border-color: var(--radiobutton-border-hover-color);
 }
 .p-radiobutton.p-highlight .p-radiobutton-box {
   background: var(--radiobutton-selected-outer-background);
   border-color: var(--radiobutton-selected-outer-background);
 }
-.p-radiobutton.p-highlight .p-radiobutton-box:not(.p-disabled):hover {
+.p-radiobutton.p-highlight:hover:not(.p-disabled) .p-radiobutton-box {
   background: var(--radiobutton-selected-outer-hover-background);
   border-color: var(--radiobutton-selected-outer-hover-background);
 }
+
 .p-radiobutton.p-highlight .p-radiobutton-box .p-radiobutton-icon {
   background: var(--radiobutton-inner-color);
 }
@@ -609,14 +605,6 @@ body {
   color: var(--linked-item-color);
 }
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover {
-  background: var(--linked-item-hover-background);
-  color: var(--linked-item-hover-text-color);
-}
-.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
-  background: var(--linked-highlighted-color);
-  color: var(--linked-item-color);
-}
-.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight:hover {
   background: var(--linked-item-hover-background);
   color: var(--linked-item-hover-text-color);
 }
@@ -925,10 +913,6 @@ body {
   color: var(--toolbar-color);
 }
 
-.rc-popup, .error-dialog {
-  border-radius: var(--dialog-border-radius);
-  background-color: var(--dialog-content-background);
-}
 .rc-popup .p-dialog-header, .error-dialog .p-dialog-header {
   background: var(--dialog-header-background);
   color: var(--dialog-header-text-color);
@@ -939,15 +923,8 @@ body {
 .rc-popup .p-dialog-content, .error-dialog .p-dialog-content {
   background: var(--dialog-content-background);
   color: var(--text-color);
-}
-.rc-popup .p-dialog-content:last-child, .error-dialog .p-dialog-content:last-child {
   border-bottom-left-radius: var(--dialog-border-radius);
   border-bottom-right-radius: var(--dialog-border-radius);
-}
-
-.p-dialog {
-  border-radius: var(--dialog-border-radius);
-  background-color: var(--dialog-content-background);
 }
 
 .rc-popup .p-dialog-header .p-dialog-header-icon {

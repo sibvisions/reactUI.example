@@ -13,6 +13,7 @@
  * the License.
  */
 :root {
+  --font-family:"Roboto";
   --font-size:12px;
   --login-form-top-bottom-padding:30px;
   --login-form-left-right-padding:40px;
@@ -55,6 +56,7 @@
   --input-button-padding:0rem 0.125rem;
   --input-button-icon-size:12px;
   --button-padding:0.125rem 0.25rem;
+  --link-button-padding:0.125rem 0;
   --button-icon-only-padding:0.125rem 0.125rem;
   --menubtn-leftbtn-padding:0.125rem 0rem 0.125rem 0.25rem;
   --menubtn-rightbtn-padding:0rem 0.125rem 0rem 0.125rem;
@@ -98,7 +100,7 @@ body {
 .basti_small .std-menu.menu-collapsed .menu-logo-wrapper {
   width: var(--std-menu-collapsed-width);
 }
-.basti_small .std-menu.menu-collapsed .menu-logo-wrapper .menu-logo {
+.basti_small .std-menu.menu-collapsed .menu-logo-wrapper .menu-logo--small {
   width: var(--std-logo-collapsed-width);
 }
 .basti_small .std-menu.menu-collapsed .menu-panelmenu-wrapper {
@@ -109,9 +111,6 @@ body {
 }
 .basti_small .std-menu.menu-collapsed:not(.design-std-menu) .menu-topbar {
   margin-left: var(--std-menu-collapsed-width);
-}
-.basti_small .std-menu.menu-collapsed .menu-logo-mini {
-  width: var(--std-logo-collapsed-width);
 }
 .basti_small .std-menu .menu-header {
   height: var(--std-header-height);
@@ -161,10 +160,7 @@ body {
 .basti_small .std-menu:not(.design-std-menu) .menu-panelmenu-wrapper {
   padding-top: var(--std-header-height);
 }
-.basti_small .std-menu .menu-logo-mini {
-  width: var(--std-logo-width);
-}
-.basti_small .std-menu .p-panelmenu .p-panelmenu-header > a {
+.basti_small .std-menu .p-panelmenu .p-panelmenu-header a {
   padding: var(--std-menu-header-padding);
 }
 .basti_small .std-menu .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled) {
@@ -256,6 +252,9 @@ body {
 .basti_small .rc-button {
   padding: var(--btnPadding, var(--button-padding, 0.125rem 0.25rem));
 }
+.basti_small.p-button-link {
+  padding: var(--btnPadding, var(--link-button-padding, 0.125rem 0));
+}
 .basti_small .p-button.p-button-icon-only:not(.rc-toolbar-button):not(.p-speeddial-button):not(.p-splitbutton-menubutton) {
   padding: var(--btnPadding, var(--button-icon-only-padding, 0.25rem 0.25rem));
 }
@@ -294,7 +293,7 @@ body {
 .basti_small .p-button.p-splitbutton-menubutton {
   padding: var(--menubtn-rightbtn-padding);
 }
-.basti_small .rc-togglebutton {
+.basti_small .rc-togglebutton > .p-button {
   padding: var(--btnPadding, var(--button-padding, 0.125rem 0.25rem));
 }
 .basti_small .p-tabview .p-tabview-nav li .p-tabview-nav-link {
@@ -371,7 +370,7 @@ body {
   .basti .std-menu .menu-logo-mini-wrapper {
     height: var(--std-logo-height);
   }
-  .basti .std-menu .menu-logo-mini-wrapper .menu-logo-mini {
+  .basti .std-menu .menu-logo-mini-wrapper .menu-logo {
     max-height: var(--std-logo-height);
     width: var(--std-logo-width);
   }

@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-:root {
+ :root {
   --font-family:"Roboto";
   --font-size:14px;
   --login-form-top-bottom-padding:40px;
@@ -56,16 +56,15 @@
   --input-button-padding:0rem 0.5rem;
   --input-button-icon-size:14px;
   --button-padding:0.5rem 1rem;
-  --link-button-padding:0.5rem 0;
   --button-icon-only-padding:0.5rem 0.5rem;
   --menubtn-leftbtn-padding:0.5rem 0.5rem;
   --menubtn-rightbtn-padding:0.5rem 0rem;
   --checkbox-size:20px;
   --radiobutton-size:20px;
   --tab-padding:0rem 1rem;
-  --table-header-padding: 0.6rem 0.75rem;
-  --table-cell-padding-top-bottom: 0.2rem;
-  --table-cell-padding-left-right: 0.75rem;
+  --table-header-padding:0.6rem 1rem;
+  --table-cell-padding-top-bottom:0.2rem;
+  --table-cell-padding-left-right:0.4rem;
   --table-data-height:27px;
   --label-padding:calc(var(--input-padding-tb) + var(--input-border-width));
   --menubar-height:40px;
@@ -100,7 +99,7 @@ body {
 .basti .std-menu.menu-collapsed .menu-logo-wrapper {
   width: var(--std-menu-collapsed-width);
 }
-.basti .std-menu.menu-collapsed .menu-logo-wrapper .menu-logo--small {
+.basti .std-menu.menu-collapsed .menu-logo-wrapper .menu-logo {
   width: var(--std-logo-collapsed-width);
 }
 .basti .std-menu.menu-collapsed .menu-panelmenu-wrapper {
@@ -111,6 +110,9 @@ body {
 }
 .basti .std-menu.menu-collapsed:not(.design-std-menu) .menu-topbar {
   margin-left: var(--std-menu-collapsed-width);
+}
+.basti .std-menu.menu-collapsed .menu-logo-mini {
+  width: var(--std-logo-collapsed-width);
 }
 .basti .std-menu .menu-header {
   height: var(--std-header-height);
@@ -158,8 +160,10 @@ body {
   width: var(--std-menu-width);
 }
 .basti .std-menu:not(.design-std-menu) .menu-panelmenu-wrapper {
-  margin-top: var(--std-header-height);
-  height: calc(var(--main-height) - var(--std-header-height));
+  padding-top: var(--std-header-height);
+}
+.basti .std-menu .menu-logo-mini {
+  width: var(--std-logo-width);
 }
 .basti .std-menu .p-panelmenu .p-panelmenu-header a {
   padding: var(--std-menu-header-padding);
@@ -168,8 +172,10 @@ body {
   padding: var(--std-menu-item-padding);
 }
 .basti .std-menu .p-panelmenu .p-panelmenu-icon {
-  left: calc(var(--std-menu-width) - 30px);
+  right: 10px;
+/*  left: calc(var(--std-menu-width) - 30px); */
 }
+
 .basti .std-menu .p-menuitem-icon:not(.profile-image):not(.profile-image-null) {
   min-width: var(--menuicon-size);
   max-width: var(--menuicon-size);
@@ -253,9 +259,6 @@ body {
 .basti .rc-button {
   padding: var(--btnPadding, var(--button-padding, 0.5rem 1rem));
 }
-.basti .p-button-link {
-  padding: var(--btnPadding, var(--link-button-padding, 0.5rem 0));
-}
 .basti .p-button.p-button-icon-only:not(.rc-toolbar-button):not(.p-speeddial-button):not(.p-splitbutton-menubutton):not(.p-splitbutton-defaultbutton) {
   padding: var(--btnPadding, var(--button-icon-only-padding, 0.5rem 0.5rem));
 }
@@ -294,9 +297,8 @@ body {
 .basti .p-button.p-splitbutton-menubutton {
   padding: var(--menubtn-rightbtn-padding);
 }
-.basti .rc-togglebutton .p-button.p-button-icon-only {
-  width: unset;
-  height: unset;
+.basti .rc-togglebutton {
+  padding: var(--btnPadding, var(--button-padding, 0.5rem 1rem));
 }
 .basti .p-tabview .p-tabview-nav li .p-tabview-nav-link {
   padding: var(--tab-padding);
@@ -372,7 +374,7 @@ body {
   .basti .std-menu .menu-logo-mini-wrapper {
     height: var(--std-logo-height);
   }
-  .basti .std-menu .menu-logo-mini-wrapper .menu-logo {
+  .basti .std-menu .menu-logo-mini-wrapper .menu-logo-mini {
     max-height: var(--std-logo-height);
     width: var(--std-logo-width);
   }

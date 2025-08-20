@@ -5,7 +5,7 @@ This example application demonstrates using the [reactUI](https://github.com/sib
 ## Dev Setup
 
 ### With npm install
-- If you are using create-react-app make sure to downgrade react to v17.0.x (https://stackoverflow.com/a/71908461)
+- If you are using create-react-app make sure to use react to v19.0.x (https://stackoverflow.com/a/71908461)
 - Run `npm install @sibvisions/reactui` to install the reactUI as dependency
 - In your `package.json` file, create a "init" command which copies files from reactui's resource folder to your projects public folder. 
 ```
