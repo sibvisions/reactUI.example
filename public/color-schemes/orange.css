@@ -105,6 +105,7 @@
   --table-readonly-odd-background:rgb(239, 239, 239);
   --table-readonly-color:var(--text-color);
   --table-sort-color:var(--primary-color);
+  --table-selectedcellborder-color:rgb(127, 127, 127);
   --linked-panel-background:var(--backgrounds);
   --linked-item-color:var(--text-color);
   --linked-item-hover-background:var(--hover-backgrounds);
@@ -521,12 +522,13 @@ body {
   color: var(--text-color);
 }
 
-.rc-togglebutton:focus {
+.rc-togglebutton:focus-within .p-button {
   box-shadow: var(--focus-box-shadow);
 }
 
 .rc-editor-choice:focus img {
   box-shadow: var(--focus-box-shadow);
+  border-radius: var(--checkbox-border-radius);
 }
 
 .p-inputtext:not(.designer-panel-inputtext):not(.style-editor-textinput):not(.express-scheme-editor):not(.designer-search-editor):not(.p-dropdown-label) {
@@ -550,6 +552,20 @@ body {
 }
 .p-inputtext:not(.designer-panel-inputtext):not(.style-editor-textinput):not(.express-scheme-editor):not(.designer-search-editor):not(.p-dropdown-label)::placeholder {
   color: var(--input-placeholder-color);
+}
+
+.rc-editor-html {
+  background: var(--input-background);
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--editor-border-radius);
+}
+.rc-editor-html:focus-within {
+  box-shadow: var(--focus-box-shadow);
+  border-color: var(--input-border-hover-color) !important;
+  outline: none;
+}
+.rc-editor-html:hover {
+  border-color: var(--input-border-hover-color);
 }
 
 .p-float-label > label {
@@ -671,10 +687,10 @@ body {
 .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label svg polygon, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label svg line, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label svg rect, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label svg polyline, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button svg polygon, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button svg line, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button svg rect, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button svg polyline {
   stroke: var(--html-toolbar-button-background);
 }
-.p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label.ql-source svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button.ql-source svg path {
+.p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label.custom-source svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button.custom-source svg path {
   fill: var(--html-toolbar-button-background);
 }
-.p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label.ql-source:hover svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button.ql-source:hover svg path {
+.p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker .ql-picker-label.custom-source:hover svg path, .p-editor-container .p-editor-toolbar.ql-snow .ql-formats button.custom-source:hover svg path {
   fill: var(--html-toolbar-button-hover-background);
 }
 .p-editor-container .p-editor-toolbar.ql-snow .ql-formats .ql-picker.ql-expanded .ql-picker-options {
@@ -795,6 +811,10 @@ body {
 }
 .rc-table .p-sortable-column:not(.p-highlight):not(.p-sortable-disabled):hover.sort-asc .p-sortable-column-icon, .rc-table .p-sortable-column:not(.p-highlight):not(.p-sortable-disabled):hover.sort-des .p-sortable-column-icon {
   color: var(--table-sort-color);
+}
+.rc-table .rc-table.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row.p-highlight > td.p-selectable-cell.p-highlight, .rc-table .rc-table.p-datatable-selectable-cell .p-datatable-tbody > tr.p-selectable-row > td.p-selectable-cell:focus {
+  outline: 2px solid var(--table-selectedcellborder-color);
+  outline-offset: -2px;
 }
 .rc-table .p-datatable-tbody > tr {
   background: var(--table-row-even-background);

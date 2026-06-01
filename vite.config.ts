@@ -26,7 +26,7 @@ export default defineConfig({
     assetsDir: 'static',
     sourcemap: true,
     cssCodeSplit: true,
-    minify: 'esbuild',
+    minify: true,
     rollupOptions: {
       output: {
         entryFileNames: (chunkInfo) => {

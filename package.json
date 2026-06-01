@@ -15,16 +15,17 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "vite": "^7.0.0",
-    "vite-plugin-dts": "^4.5.4",
-    "typescript": "^5.8.3",
+    "vite": "^8.0.15",
+    "vite-plugin-dts": "^5.0.1",
+    "typescript": "^6.0.3",
+    "sass-embedded": "^1.100.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@types/node": "^24.0.4",
+    "@types/node": "^25.9.1",
     "@types/quill": "^2.0.14",
     "@types/react-color": "^3.0.6",
     "@types/underscore": "^1.11.4",
-    "@vitejs/plugin-react": "^5.0.0",
+    "@vitejs/plugin-react": "^6.0.2",
     "rimraf": "^6.0.1",
     "rollup-plugin-copy": "^3.4.0"
   }

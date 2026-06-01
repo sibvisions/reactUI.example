@@ -13,7 +13,7 @@
  * the License.
  */
 :root {
-  --font-family:"Roboto";
+  --font-family:'Roboto';
   --font-size:14px;
   --login-form-top-bottom-padding:40px;
   --login-form-left-right-padding:40px;
@@ -167,7 +167,8 @@ body {
 .basti .std-menu .p-panelmenu .p-panelmenu-content .p-menuitem .p-menuitem-link:not(.p-disabled) {
   padding: var(--std-menu-item-padding);
 }
-.basti .std-menu .p-panelmenu .p-panelmenu-icon {
+.basti .std-menu .p-panelmenu .p-submenu-icon {
+  position: absolute;
   left: calc(var(--std-menu-width) - 30px);
 }
 .basti .std-menu .p-menuitem-icon:not(.profile-image):not(.profile-image-null) {
@@ -243,9 +244,6 @@ body {
 }
 .basti .corp-menu .p-speeddial .p-speeddial-action .p-speeddial-action-icon {
   font-size: calc(var(--corp-speeddial-size) / 2);
-}
-.basti .p-component, .basti .rc-label {
-  font-size: var(--font-size);
 }
 .basti .p-inputtext:not(.login-inputtext) {
   padding: var(--input-padding-tb) var(--input-padding-lr);
